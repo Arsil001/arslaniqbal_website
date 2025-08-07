@@ -87,7 +87,28 @@
 &lt;li&gt;Github page also allows the use of custom domain name. I have a personal domain bought from &lt;a href=&#34;https://www.squarespace.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;squarespace.com&lt;/a&gt;. To use a custom domain properly, you have to go to your &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt; repository, click &lt;code&gt;Settings&lt;/code&gt;, find &lt;code&gt;Pages&lt;/code&gt; from the menu on the left side, put down you custom domain name on the placeholder called &lt;code&gt;Custom domain&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Go to this &lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt; and you will find a list of 5 A numbers &lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#:~:text=To%20create%20A%20records%2C%20point%20your%20apex%20domain%20to%20the%20IP%20addresses%20for%20GitHub%20Pages.&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Go to the DNS settings on your domain. Remove any preexisting default records from there. For Squarespace, there were some default prameters in the DNS settings, which I needed to remove first. Without removing those, the domain was not working properly.&lt;/li&gt;
-&lt;li&gt;Add the A numbers there like below. Also add a CNAME record that points it to your github repository.&lt;/li&gt;
+&lt;li&gt;Add the A numbers there like below. Also add a CNAME record that points it to your github repository.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;https://souravbhadra.com/post/hugo-blox-as-resume-website/dns-records.png&#34; alt=&#34;dns-records&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/li&gt;
 &lt;li&gt;Give it some time to perform the DNS check from github&amp;rsquo;s end. Sometimes it may take few hours to do the check. Once the DNS check is successful, you should see your website live on the custom domain. Also make sure to check the &lt;code&gt;Enforce HTTPS&lt;/code&gt; to enable extra layer of security.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;final-remarks&#34;&gt;Final remarks&lt;/h2&gt;
