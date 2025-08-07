@@ -6,8 +6,8 @@ title: Sourav Bhadra
 #name_pronunciation: 
 
 # Full name (for SEO)
-first_name: Sourav
-last_name: Bhadra
+first_name: Muhammad Arslan
+last_name: Iqbal
 
 # Status emoji
 status:
@@ -24,7 +24,7 @@ role: Data Scientist
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Bayer
+  - name: The University of Melbourne
     url: https://www.bayer.com/en/
 
 # Social network links
