@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CV | Sourav Bhadra</title>
+    <link>http://localhost:1313/tags/cv/</link>
+      <atom:link href="http://localhost:1313/tags/cv/index.xml" rel="self" type="application/rss+xml" />
+    <description>CV</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu4172180860045846282.png</url>
+      <title>CV</title>
+      <link>http://localhost:1313/tags/cv/</link>
+    </image>
+    
+    <item>
+      <title>Create powerful portfolio websites using Hugoblox</title>
+      <link>http://localhost:1313/post/hugo-blox-as-resume-website/</link>
+      <pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/hugo-blox-as-resume-website/</guid>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Who doesn&amp;rsquo;t love a fully functional and easy to maintain website to showcase personal resume or CV over the internet! I do for sure. I have been using GitHub pages and static HTML+CSS pages (using one from &lt;a href=&#34;https://html5up.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://html5up.net/&lt;/a&gt;) to showcase my personal portfolio for a while. Github pages offers the flexibility to quickly modify things locally and push the updated changes which is then easily reflected on the github page with custom domain functionality as well. While the HTML and CSS pages have been working up very well, I have missed the opportunity of writing regular blogs on my website. There are tons of HTML+CSS templates out there with blogging features, but during my search, I found Hugo.&lt;/p&gt;
+&lt;p&gt;Hugo is powerful tool for scientists and professionals to create beautiful websites without any coding. The best thing of Hugo is that most of its uniqueness relies on markdown and several yaml fiels, making it very customizable and easy to maintain. Hugoblox (&lt;a href=&#34;https://hugoblox.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://hugoblox.com/&lt;/a&gt;) is built on top of Hugo and provides more feature rich templates for customization. Hugoblox has neumerous &lt;a href=&#34;https://hugoblox.com/templates/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;templates&lt;/a&gt; to choose from. I liked the &lt;a href=&#34;https://hugoblox.com/templates/details/academic-cv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;academic CV&lt;/a&gt; template, which is completely free. The complete instructions on how to use the template are provided in their documentation (&lt;a href=&#34;https://docs.hugoblox.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.hugoblox.com/&lt;/a&gt;). However, while I was exploring the options, I found some issues while setting Hugo locally on my Mac due to some version issues. Therefore, in this article, I will briefly explain each major steps I took and mention what did not work for me along with the workarounds.&lt;/p&gt;
+&lt;h2 id=&#34;creating-a-repository-in-github-using-the-provided-template&#34;&gt;Creating a repository in github using the provided template&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to the &lt;a href=&#34;https://hugoblox.com/templates/details/academic-cv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic CV template&lt;/a&gt; site and click the &lt;code&gt;Edit&lt;/code&gt; button.&lt;/li&gt;
+&lt;li&gt;This will take you to the &lt;code&gt;Create new repository&lt;/code&gt; page of your github (you need to be signed in or else it will ask you to). But it will use the template version of this site so once you create your repository, it will bring in all the template files of this site.&lt;/li&gt;
+&lt;li&gt;The name of the repository should be &lt;code&gt;&amp;lt;your_github_username&amp;gt;.github.io&lt;/code&gt;. This will tell github to make it a github page within the workflow.&lt;/li&gt;
+&lt;li&gt;You need to make the repository &lt;code&gt;Public&lt;/code&gt; to show it as a github page.&lt;/li&gt;
+&lt;li&gt;After creating the repository, wait some time and in a browser, type in &lt;code&gt;&amp;lt;your_github_username&amp;gt;.github.io&lt;/code&gt;. This should show you the &lt;a href=&#34;https://academic-demo.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic CV demo site&lt;/a&gt;, which means github pages is working. If you make changes to this newly created repository based on your personal information, that should be reflected to the website as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;run-things-locally&#34;&gt;Run things locally&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The basic instructions in the documentation talks about changing things on github codespace, which is a web-based version of VSCode integrated with Github. While this is great, it takes some time to take the changes effect after updating each component. I find it more useful doing things locally, check how the website is looking after each change and the push all the updates to the github repository.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;a href=&#34;https://docs.hugoblox.com/getting-started/install-hugo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation&lt;/a&gt; clearly shows the steps needed for setting up things locally. However, I found some version issue while working on macOS.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I first installed &lt;code&gt;hugo&lt;/code&gt; using &lt;code&gt;homebrew&lt;/code&gt; by doing &lt;code&gt;brew install hugo&lt;/code&gt; in my terminal. However, whenever I wanted to serve the Academic CV template using the &lt;code&gt;hugo&lt;/code&gt; I just installed, it was trhowing me rendering error. After many search, I found that this template only works with a specific version of hugo, which is &lt;code&gt;v136.5&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download the &lt;a href=&#34;https://github.com/gohugoio/hugo/releases/download/v0.136.5/hugo_extended_0.136.5_darwin-universal.tar.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hugo_extended_0.136.5_darwin-universal.tar.gz&lt;/a&gt; from its previous releases stored in the github repository of &lt;a href=&#34;https://github.com/gohugoio/hugo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After downloading it, extract it in terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar -xzf hugo_extended_0.136.5_darwin-universal.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Move this to your applications directory.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mv hugo /opt/homebrew/bin/   &lt;span class=&#34;c1&#34;&gt;# Apple Silicon&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mv hugo /usr/local/bin/   &lt;span class=&#34;c1&#34;&gt;# Intel Mac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verify the &lt;code&gt;hugo&lt;/code&gt; version&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the other dependencies of &lt;code&gt;hugo&lt;/code&gt; using &lt;code&gt;homebrew&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install git golang node
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I used VSCode and Git to connect to my Github account and then clone the newly created &lt;code&gt;&amp;lt;myusername&amp;gt;.github.io&lt;/code&gt; in my local directory. Then after making some simple changes to the template, cd into the project directory and run the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;This will start running the output of the website in &lt;code&gt;http://localhost:1313/&lt;/code&gt;. Open any browser and put that in the address bar to see the live website locally. Any changes saved will show the output in this address. This is much easier to work with as the changes take effect almost immediately.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;change-the-template-tuned-to-personal-needs&#34;&gt;Change the template tuned to personal needs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The documentation provides detailed list of what to change for the customization of the template. However, key points are:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;assets/media&lt;/code&gt; holds all the icon and banner files. The website icon is by default the icon of Hugo, which can be changed by placing any 512 by 512 icon file as &lt;code&gt;icon.png&lt;/code&gt; in the &lt;code&gt;assets/media&lt;/code&gt; location.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config/_default&lt;/code&gt; has several &lt;code&gt;.yaml&lt;/code&gt; files which are responsible for the key components of the site. Each file has enough comments to explain what each variable does.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;content&lt;/code&gt; is the main portion of the template.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;authors/admin/_index.md&lt;/code&gt; has a lot of customizable information about the author.&lt;/li&gt;
+&lt;li&gt;All other directories are self explanatory. Mainly, the &lt;code&gt;_index.md&lt;/code&gt; files in each directory are the key files to change.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;custom-domain-name-on-github-page&#34;&gt;Custom domain name on github page&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Github page also allows the use of custom domain name. I have a personal domain bought from &lt;a href=&#34;https://www.squarespace.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;squarespace.com&lt;/a&gt;. To use a custom domain properly, you have to go to your &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt; repository, click &lt;code&gt;Settings&lt;/code&gt;, find &lt;code&gt;Pages&lt;/code&gt; from the menu on the left side, put down you custom domain name on the placeholder called &lt;code&gt;Custom domain&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Go to this &lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt; and you will find a list of 5 A numbers &lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#:~:text=To%20create%20A%20records%2C%20point%20your%20apex%20domain%20to%20the%20IP%20addresses%20for%20GitHub%20Pages.&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Go to the DNS settings on your domain. Remove any preexisting default records from there. For Squarespace, there were some default prameters in the DNS settings, which I needed to remove first. Without removing those, the domain was not working properly.&lt;/li&gt;
+&lt;li&gt;Add the A numbers there like below. Also add a CNAME record that points it to your github repository.&lt;/li&gt;
+&lt;li&gt;Give it some time to perform the DNS check from github&amp;rsquo;s end. Sometimes it may take few hours to do the check. Once the DNS check is successful, you should see your website live on the custom domain. Also make sure to check the &lt;code&gt;Enforce HTTPS&lt;/code&gt; to enable extra layer of security.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;final-remarks&#34;&gt;Final remarks&lt;/h2&gt;
+&lt;p&gt;That&amp;rsquo;s it. Super simple and efficient way to manage personal website. There are numerous other templates available in both Hugoblox and Hugo for free with different use cases. As a scientist, I find Hugo very easy-to-use due to it&amp;rsquo;s integration with markdown pages.&lt;/p&gt;
+&lt;h2 id=&#34;credits&#34;&gt;Credits&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://hugoblox.com/templates/details/academic-cv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://hugoblox.com/templates/details/academic-cv/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.hugoblox.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.hugoblox.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://geocushen.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://geocushen.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

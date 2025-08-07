@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mapping | Sourav Bhadra</title>
+    <link>http://localhost:1313/tags/mapping/</link>
+      <atom:link href="http://localhost:1313/tags/mapping/index.xml" rel="self" type="application/rss+xml" />
+    <description>Mapping</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 16 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu4172180860045846282.png</url>
+      <title>Mapping</title>
+      <link>http://localhost:1313/tags/mapping/</link>
+    </image>
+    
+    <item>
+      <title>AgLapse</title>
+      <link>http://localhost:1313/project/aglapse/</link>
+      <pubDate>Fri, 16 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/aglapse/</guid>
+      <description>&lt;p&gt;A spatiotemporal visualization tool for four major agricultural crops in the United States.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
