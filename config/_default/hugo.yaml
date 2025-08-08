@@ -4,9 +4,10 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 # Website name
-title: Sourav Bhadra
+title: Arslan Iqbal
+
 # Website URL
-baseURL: 'https://souravbhadra.com/'
+baseURL: 'https://www.arslaniqbal.com/'
 
 ############################
 ## LANGUAGE

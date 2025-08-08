@@ -1,0 +1,437 @@
+/* -------------------------------------------------------------------------------- */
+/* Nicole’s article styles */
+/* -------------------------------------------------------------------------------- */
+
+/* Paragraph text color */
+p {
+  color: #4c4b4b;
+}
+
+/* Footnotes */
+.footnotes {
+  font-size: 0.75em;
+}
+
+/* Font Awesome icons */
+.fas,
+.fab,
+.ai {
+  font-size: 1.0em;
+}
+
+/* Table of Contents links */
+#TableOfContents li a,
+.toc-top li a {
+  color: #9d9f9a;
+  display: block;
+  padding: 0 1.5rem;
+  line-height: 1.75;
+  font-size: 0.75em;
+}
+#TableOfContents li a.active {
+  font-weight: normal;
+  color: var(--primary); /* use your primary color variable */
+}
+
+/* In-article links */
+.article-style a {
+  color: #5a464c;
+  font-weight: normal;
+  border-bottom: 1px solid #5a464c;
+}
+
+/* Footnote reference markers */
+a.footnote-ref {
+  border-bottom: 0;
+}
+a.footnote-ref::before { content: "["; }
+a.footnote-ref::after  { content: "]"; }
+
+/* Article title links */
+.article-title a {
+  color: #313131;
+  font-weight: normal;
+  transition: color 0.6s ease;
+}
+
+/* Text selection highlight */
+::selection {
+  background: rgba(90, 70, 76, 0.15);
+}
+::-moz-selection {
+  background: rgba(90, 70, 76, 0.15);
+}
+
+/* Headings */
+h1 {
+  margin: 2rem 0 1.5rem;
+  font-weight: 500;
+}
+h2 {
+  margin: 2rem 0 1rem;
+  font-weight: 400;
+}
+h3 {
+  margin: 1.5rem 0 0.75rem;
+  font-weight: 400;
+}
+h4 {
+  margin: 1rem 0 0.5rem;
+}
+
+/* Figure captions */
+figure figcaption {
+  margin: 0.75em 0 1.65rem;
+  line-height: 1.4;
+  font-size: 0.75rem;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border-bottom: 1px solid rgba(0,0,0,0.09);
+}
+
+/* Inline code blocks */
+code {
+  background-color: #f3f6ee;
+  color: #5a464c;
+  word-wrap: break-word;
+  border-radius: 0.25rem;
+  font-size: 80%;
+  border: 1px solid #5a464c;
+  padding: 0.2rem;
+}
+
+/* Buttons */
+.btn {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 0.9;
+  border-radius: 0.3rem;
+}
+
+/* Summary/Details */
+summary {
+  display: list-item;
+  cursor: pointer;
+  font-weight: bold;
+}
+details p {
+  margin-left: 0.3rem;
+  padding-left: 0.7rem;
+  border-left: 0;
+}
+
+/* Tables */
+.table th,
+.table td {
+  color: #4c4b4b;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+}
+table > tbody {
+  color: #4c4b4b;
+}
+
+/* Alerts and side-notes */
+.alert,
+.article-style aside,
+.alert-note {
+  color: rgb(90, 70, 76);
+  background-color: #f3f6ee;
+  border-color: #5a464c;
+}
+.article-style aside p::before,
+div.alert > div:first-child::before {
+  position: absolute;
+  top: -0.5rem;
+  left: -2rem;
+  font-size: 1.5rem;
+  color: #5a464c;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f05a';
+  width: 1.5rem;
+  text-align: center;
+}
+
+/* Article body base font-size */
+.article-style {
+  font-size: 1rem;
+}
+
+/* Preformatted code blocks */
+pre code {
+  background-color: transparent;
+  border: none;
+}
+
+/* Chroma code highlighting */
+.chroma {
+  border-radius: 0.25rem;
+  font-size: 90%;
+  border: 1px solid silver;
+  padding: 1rem;
+}
+
+/* Dark mode overrides */
+.dark p {
+  color: rgba(255,255,255,0.7);
+}
+body.dark,
+.dark input {
+  color: rgba(255,255,255,0.7);
+}
+.dark .card-simple {
+  background-color: #373636;
+  border-color: #555555;
+}
+.dark .navbar {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border: 1px solid #2b2a2a;
+}
+body.dark,
+.dark {
+  background: #2b2a2a;
+}
+.dark code {
+  background-color: #2b2a2a;
+  color: silver;
+  word-wrap: break-word;
+  border-radius: 0.25rem;
+  font-size: 80%;
+  border: 1px solid silver;
+  padding: 0.2rem;
+}
+.dark .btn-outline-primary {
+  color: #f3f6ee;
+  border-color: #f3f6ee;
+}
+.dark .form-control {
+  color: #f3f6ee;
+  background-color: #373636;
+}
+.dark .alert,
+.dark .article-style aside,
+.dark .alert-note {
+  color: #c3c3c3;
+  background-color: #434343;
+  border-color: #c3c3c3;
+}
+.dark .article-style aside p::before,
+.dark div.alert > div:first-child::before {
+  position: absolute;
+  top: -0.5rem;
+  left: -2rem;
+  font-size: 1.5rem;
+  color: #c3c3c3;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f05a';
+  width: 1.5rem;
+  text-align: center;
+}
+.dark details p {
+  border-left: 0 solid rgba(255,255,255,0.5);
+}
+.dark .table th,
+.dark .table td {
+  color: rgba(255,255,255,0.7);
+  border-top: 1px solid rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+.dark table > tbody {
+  color: rgba(255,255,255,0.7);
+}
+.dark table > tbody > tr:nth-child(odd) > td,
+.dark table > tbody > tr:nth-child(odd) > th {
+  background-color: #2b2a2a;
+}
+.dark table > tbody > tr:hover > td,
+.dark table > tbody > tr:hover > th {
+  background-color: #2b2a2a;
+}
+.dark pre code {
+  border: none;
+}
+.dark .chroma {
+  color: #f8f8f2;
+  background-color: #2b2a2a;
+  border-radius: 0.25rem;
+  font-size: 90%;
+  border: 1px solid #555555;
+  padding: 1rem;
+}
+.dark .btn-primary,
+.dark .btn.btn-primary.active {
+  background-color: #2b2a2a;
+  border: 1px solid #555555;
+  color: #f8f8f2;
+}
+#TableOfContents {
+  padding-left: 0;
+  border-left: 0 solid rgba(255,255,255,0.65);
+}
+.dark #TableOfContents li a:hover,
+.toc-top li a:hover {
+  color: #f8f8f2;
+  text-decoration: none;
+}
+.dark #TableOfContents li a.active {
+  font-weight: normal;
+  color: #f8f8f2;
+}
+.dark .article-style a {
+  color: #f3f6ee;
+  font-weight: normal;
+  border-bottom: 1px solid #f3f6ee;
+}
+.dark ::selection {
+  background: rgba(243,246,238,0.15);
+}
+.dark ::-moz-selection {
+  background: rgba(243,246,238,0.15);
+}
+.dark a.footnote-ref {
+  border-bottom: 0;
+}
+.dark a.footnote-ref::before {
+  content: "[";
+}
+.dark a.footnote-ref::after {
+  content: "]";
+}
+
+/* Mobile sidebar hide */
+@media screen and (max-width: 760px) {
+  aside#sidebar-nav {
+    display: none !important;
+  }
+}
+
+/* 1) Target the hero heading in both light & dark mode */
+h1.site-title,
+h1[href^="#"], /* fallback if it’s an anchor-style hero */
+h1 {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size:   40.5px              !important;
+  font-weight: 500                 !important;
+  line-height: 1.15                !important;
+  letter-spacing: -0.02em          !important;
+}
+
+/* 2) Dark‐mode variant (if your theme wraps dark mode on <html> or <body>) */
+html.dark h1.site-title,
+html.dark h1 {
+  /* repeat to override any dark‐mode font rules */
+  font-family: 'DM Sans', sans-serif !important;
+  font-size:   40.5px              !important;
+  font-weight: 500                 !important;
+}
+
+/* 0) Increase the base body font size site-wide */
+body {
+  font-size: 18px !important;
+}
+
+/* 1) Ensure all <p> inherit that size */
+p {
+  font-size: inherit !important;
+}
+
+/* 2) Profile name under the picture should match body text */
+.author-name,
+.profile-name {
+  font-family: 'Libre Franklin', sans-serif !important;
+  font-size:    18px                  !important;
+  font-weight:  400                   !important;
+}
+
+/* 3) “Hi, I’m …” heading stays at Nicole’s size */
+h1.site-title,
+h1 {
+  font-size:    40.5px                !important;
+  /* keep the other overrides you already have */
+}
+
+/* 4) If your theme wraps dark mode, repeat for dark-mode body */
+html.dark body {
+  font-size: 18px !important;
+}
+
+/* Make paragraphs and list-items use the body’s 18px */
+body, 
+body p, 
+body li {
+  font-size: 18px !important;
+}
+
+/* Give all list items a bit of breathing room */
+li {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Force that flex‐none/m-w-[130px] box to be 320px wide */
+.flex-none.m-w-\[130px\] {
+  width: 325px !important;
+  /* if you want it to grow or shrink less: */
+  flex: 0 0 325px !important;
+}
+
+#section-resume-biography-3 > 
+div.resume-biography.px-3.flex.flex-col.md\:flex-row.justify-center.gap-12 > 
+div.flex-auto.max-w-prose.md\:mt-12 > 
+div.pt-2.justify-content-center.prose.prose-slate.dark\:prose-invert {
+  max-width: 800px !important;
+  width:     100%  !important;
+  text-align: justify !important;
+}
+
+/* bump the bio/text container from 680px down to 640px */
+.flex-auto.max-w-prose {
+  max-width: 750px   !important;
+  width:     100%    !important;
+}
+
+#section-resume-biography-3 {
+  padding-top: 0px !important;
+}
+
+#profile {
+  padding-top: 110px !important;
+}
+
+
+/* avatar circle size */
+#profile .avatar-wrapper .avatar {
+  width: 350px !important;   /* new diameter */
+  height: 350px !important;  /* match width */
+  border-radius: 50% !important; /* keep it perfectly round */
+  object-fit: cover;         /* ensures the image covers the box */
+  /* …then pull it back by half its own width/height */
+  transform: translate(-25%, -25%);
+}
+
+/* if you need to tweak the wrapper’s padding to center it: */
+#profile .avatar-wrapper {
+  padding: 10px !important;  /* adjust as needed */
+}
+
+/* Increase space above the “Arslan Iqbal” title */
+#profile .portrait-title .text-3xl {
+  /* Option A: increase the margin */
+  margin-top: 45px !important; /* was ~24px (mt-6), now 40px */
+}
+
+/* Remove extra top margin on the subtitle under profile */
+#profile > div.portrait-title.dark\:text-white > h3 {
+  margin-top: 0 !important;
+}
+
+
+
+

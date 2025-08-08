@@ -7,6 +7,8 @@
 appearance:
   mode: system
   color: emerald
+  font: custom
+  custom_css: ["css/custom.css"]
 
 # SEO
 marketing:
@@ -35,12 +37,12 @@ header:
     show_search: false
     show_theme_chooser: true
     logo:
-      text: "Sourav Bhadra"
+      text: "Arslan Iqbal"
 
 # Site footer
 footer:
   copyright:
-    notice: '© {year} Sourav Bhadra.'
+    notice: '© {year} Muhammad Arslan Iqbal.'
     license:
       enable: false
       allow_derivatives: false
@@ -58,3 +60,14 @@ features:
     enable: false
   privacy_pack:
     enable: false
+  avatar:
+    gravatar: false
+    shape: circle
+
+# add at the bottom of config/_default/params.yaml:
+typography:
+  bodyFont:    "DM Sans"
+  headingFont: "DM Sans"
+
+customCSS:
+  - "css/custom.css"

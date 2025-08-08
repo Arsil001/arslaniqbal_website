@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Sourav Bhadra
+title: Arslan Iqbal  
 
 # Name pronunciation (optional)
 #name_pronunciation: 
@@ -11,7 +11,7 @@ last_name: Iqbal
 
 # Status emoji
 status:
-  icon: 👨‍💻
+  icon: 
 
 # Is this the primary user of the site?
 superuser: true
@@ -261,6 +261,6 @@ awards:
       Awarded Second Place in the university-wide 3 Minute Thesis (3MT) competition for my presentation titled "Fighting Food Security by Seeing the Unseen."
 ---
 
-## 👋 Welcome to my personal website
+## Hi, I'm Muhammad Arslan Iqbal 👋
 
-I am a Data Scientist with a passion for uncovering insights from complex, unstructured data. When it comes to solving real-world problems, I take an end-to-end approach, i.e., designing solutions that go beyond model development to include deployment, scalability, and MLOps integration, while  incorporating stakeholder feedback to ensure business impact.
+I’m currently researching household displacement due to disasters at University College London (UCL). My background is in structural engineering and I have over nine years of experience quantifying disaster risks. At the Global Earthquake Model (GEM) Foundation, I conducted earthquake risk assessment at the national and regional scales. At Arup, I was focused on the campus and building-specific scales, with an emphasis on modeling recovery after disasters.
