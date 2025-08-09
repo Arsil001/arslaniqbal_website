@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------------- */
-/* Nicole’s article styles */
+/*                            My WEBSITE STYLE                                      */
 /* -------------------------------------------------------------------------------- */
 
 /* Paragraph text color */
@@ -313,35 +313,6 @@ body.dark,
   }
 }
 
-/* 1) Target the hero heading in both light & dark mode */
-h1.site-title,
-h1[href^="#"], /* fallback if it’s an anchor-style hero */
-h1 {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size:   40.5px              !important;
-  font-weight: 500                 !important;
-  line-height: 1.15                !important;
-  letter-spacing: -0.02em          !important;
-}
-
-/* 2) Dark‐mode variant (if your theme wraps dark mode on <html> or <body>) */
-html.dark h1.site-title,
-html.dark h1 {
-  /* repeat to override any dark‐mode font rules */
-  font-family: 'DM Sans', sans-serif !important;
-  font-size:   40.5px              !important;
-  font-weight: 500                 !important;
-}
-
-/* 0) Increase the base body font size site-wide */
-body {
-  font-size: 18px !important;
-}
-
-/* 1) Ensure all <p> inherit that size */
-p {
-  font-size: inherit !important;
-}
 
 /* 2) Profile name under the picture should match body text */
 .author-name,
@@ -351,29 +322,13 @@ p {
   font-weight:  400                   !important;
 }
 
-/* 3) “Hi, I’m …” heading stays at Nicole’s size */
-h1.site-title,
-h1 {
-  font-size:    40.5px                !important;
-  /* keep the other overrides you already have */
-}
 
-/* 4) If your theme wraps dark mode, repeat for dark-mode body */
-html.dark body {
-  font-size: 18px !important;
-}
-
-/* Make paragraphs and list-items use the body’s 18px */
-body, 
-body p, 
-body li {
-  font-size: 18px !important;
-}
 
 /* Give all list items a bit of breathing room */
 li {
   margin-bottom: 0.5rem !important;
 }
+
 
 /* Force that flex‐none/m-w-[130px] box to be 320px wide */
 .flex-none.m-w-\[130px\] {
@@ -432,6 +387,245 @@ div.pt-2.justify-content-center.prose.prose-slate.dark\:prose-invert {
   margin-top: 0 !important;
 }
 
+/*####################### HEADER OF WEBSITE ########################*/
+
+/* Default header link color */
+#site-header nav a,
+#site-header nav button {
+  color: rgb(4, 32, 27) !important;
+  transition: color .2s ease;
+}
+
+/* Make the tab turn white on hover/focus */
+#site-header nav a:hover,
+#site-header nav a:focus,
+#site-header nav a:focus-visible,
+#site-header nav .nav-link:hover,
+#site-header nav .menu a:hover {
+  color: #fff !important;
+}
+
+/* Ensure icons inside links also turn white */
+#site-header nav a:hover svg,
+#site-header nav a:focus svg {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* Active/current page tabs should also be white */
+#site-header nav .active,
+#site-header nav .is-active,
+#site-header nav .current,
+#site-header nav a[aria-current="page"] {
+  color: #fff !important;
+}
+
+/* (Optional) if your theme uses an underline/border on hover, make it white too */
+#site-header nav a:hover,
+#site-header nav a:focus {
+  border-color: #fff !important;
+  text-decoration-color: #fff !important;
+}
+
+/* Dark mode too */
+html.dark #site-header nav a:hover,
+html.dark #site-header nav a:focus {
+  color: #fff !important;
+}
+
+/* Make the header bar solid green, always */
+#site-header,
+#site-header > nav,
+#site-header.headroom--not-top,   /* common sticky class */
+#site-header.is-sticky,           /* some themes add this */
+html.dark #site-header,
+html.dark #site-header > nav {
+  background: rgb(24, 188, 156) !important;
+  background-image: none !important; /* nuke gradients */
+  --tw-bg-opacity: 1 !important;     /* Tailwind override */
+}
+
+/* If the theme uses blur/transparent overlays, disable them */
+#site-header,
+#site-header > nav {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Ensure inner wrappers don’t reintroduce a bg */
+#site-header .navbar,
+#site-header .nav-bg {
+  background: inherit !important;
+}
+
+
+/* Left Padding before website name on the top left */
+#site-header .navbar,
+#site-header .container {
+  padding-left: 125px !important;
+  padding-right: 125px !important;
+}
+
+/* My Name in the Navigation Bar top left */
+#site-header > nav > div.order-0.h-100 > a {
+  font-family: "Libre Franklin", sans-serif !important;
+  font-size: 21.5px !important;
+  font-weight: 700 !important;
+
+  line-height: 27px !important;
+  margin-right: 18px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+ 
+
+  position: relative !important;
+  text-align: left !important;
+
+  /* helps padding/line-height behave predictably on an <a> */
+  display: inline-block !important;
+}
+
+/* For Tags in the Navigation bar on top other than Name: */
+#nav-menu,
+#nav-menu li,
+#nav-menu a,
+#nav-menu .nav-link {
+  font-family: 'Libre Franklin', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
+
+/*########################### BODY ###########################*/
+ /* For Hi! Line */
+#hi-im-muhammad-arslan-iqbal- {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 40.5px !important;
+  font-weight: 500 !important;
+
+  line-height: 50.625px !important;
+  display: block !important;   /* ensures height is respected */
+  hyphens: manual !important;
+
+  /* margins (logical + physical for safety) */
+  margin-block-start: 36px !important;
+  margin-block-end: 27px !important;
+  margin-top: 36px !important;
+  margin-bottom: 27px !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 0 !important;
+}
+
+/* For The Paragraph About Me */
+#section-resume-biography-3 >
+div.resume-biography.px-3.flex.flex-col.md\:flex-row.justify-center.gap-12 >
+div.flex-auto.max-w-prose.md\:mt-12 >
+div.pt-2.justify-content-center.prose.prose-slate.dark\:prose-invert >
+div > p {
+  font-family: 'Libre Franklin', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+
+  line-height: 29.7px !important;
+
+  /* box size */
+  height: 178.2px !important;
+
+  /* margins (logical + physical for safety) */
+  margin-block-start: 0px !important;
+  margin-block-end: 18px !important;
+  margin-top: 0px !important;
+  margin-bottom: 18px !important;
+  margin-inline-start: 0px !important;
+  margin-inline-end: 0px !important;
+}
+
+/* For the list items of Education and Experience */
+li,
+.prose li { /* beats Tailwind Typography */
+  font-family: 'Libre Franklin', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+}
+
+/* Name under the avatar: */
+#profile > div.portrait-title.dark\:text-white > div.text-3xl.font-bold.mb-2.mt-6 {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 31.5px !important;
+  font-weight: 300 !important; /* overrides Tailwind's font-bold */
+}
+
+/* For Role: PhD Economics and Institute under Avatar: */
+#profile > div.portrait-title.dark\:text-white > h3.font-semibold.mb-1,
+#profile > div.portrait-title.dark\:text-white > div:nth-child(3),
+#profile > div.portrait-title.dark\:text-white > div:nth-child(3) * {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 300 !important; /* overrides Tailwind's font-semibold */
+}
+
+/* Background of Bio Page: */
+/* Section is the positioning context */
+#section-resume-biography-3 {
+  position: relative !important;
+  overflow-x: clip; /* avoid tiny horizontal scrollbars */
+}
+
+/* Full-bleed background */
+#section-resume-biography-3 > div.home-section-bg.bg-image {
+  position: absolute !important;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 100vw;                 /* edge-to-edge */
+  transform: translateX(-50%);  /* center across page */
+  z-index: 0 !important;
+
+  background-image: url("/media/stacked-peaks.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center bottom !important;
+  background-size: cover !important; /* try 'contain' if you prefer */
+}
+
+/* Keep content above the bg */
+#section-resume-biography-3 > *:not(.home-section-bg) {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Kill any theme overlay */
+#section-resume-biography-3 > div.home-section-bg.bg-image::before,
+#section-resume-biography-3 > div.home-section-bg.bg-image::after {
+  content: none !important;
+  background: none !important;
+}
+
+
+
+/*########################### FOOTER ###########################*/
+/* Permanent green footer, regardless of light/dark mode */
+#top > div.page-footer,
+html.dark #top > div.page-footer,
+body.dark #top > div.page-footer {
+  background: rgb(24, 188, 156) !important;
+  background-image: none !important;   /* kill gradients */
+  color: rgb(4, 32, 27) !important;    /* readable text on that green */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Make links/icons inside the footer readable too */
+#top > div.page-footer a,
+#top > div.page-footer button {
+  color: rgb(4, 32, 27) !important;
+}
+#top > div.page-footer svg {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* Optional: keep hover readable on green */
+#top > div.page-footer a:hover {
+  opacity: .85; /* subtle hover without changing color */
+}
 
 
 
