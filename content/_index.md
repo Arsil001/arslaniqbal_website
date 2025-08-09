@@ -1,6 +1,6 @@
 ---
 # Leave the homepage title empty to use the site title
-title: Sourav Bhadra
+title: Arslan Iqbal
 date: 2022-10-24
 type: landing
 
@@ -23,8 +23,8 @@ sections:
       background:
         color: black
         image:
-          # Add your image background to `assets/media/`.
-          filename: rose-petals.svg
+          # Add your image background to `static/media/`.
+          filename: stacked-peaks.svg
           filters:
             brightness: 0.8
           size: cover

@@ -20,82 +20,74 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Data Scientist
+role: PhD Economics Candidate
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
   - name: The University of Melbourne
-    url: https://www.bayer.com/en/
+    url: https://www.unimelb.edu.au/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:sbhadra019@gmail.com'
+    url: 'mailto:muhammad.iqbal@unimelb.edu.au'
     label: E-mail Me
   - icon: brands/github
-    url: https://github.com/souravbhadra
+    url: https://github.com/Arsil001
   - icon: brands/x
-    url: https://x.com/SouravBhadra019
+    url: https://x.com/arsilaryan
   - icon: brands/linkedin
-    url: https://www.linkedin.com/bhadrasourav
-  - icon: academicons/moodle
-    url: https://medium.com/@sbhadra019
-  - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=twDNDo0AAAAJ&hl=en
+    url: https://www.linkedin.com/in/m-arslan-iqbal
+  #- icon: academicons/moodle
+  ##  url: https://medium.com/@sbhadra019
+  #- icon: academicons/google-scholar
+  ##  url: https://scholar.google.com/citations?user=twDNDo0AAAAJ&hl=en
   - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-5832-4695
+    url: https://orcid.org/0000-0001-8550-079X
 
+
+# Field Interests:
 interests:
-  - Artificial Intelligence
-  - Computer Vision
-  - Remote Sensing
-  - Crop Phenotyping
-  - Geospatial Analytics
-  - MLOps
+  - Behavioral Economics
+  - Experimental Methodology
+  - Responsible Leadership
+  - Development Economics
+  - Political Economy
 
+
+# Education:
 education:
-  - area: Ph.D. in Geoinformatics and Geospatial Analytics
-    institution: Saint Louis University
-    date_start: 2019-08-01
-    date_end: 2023-05-31
+  - area: Ph.D. in Economics (enrolled)
+    institution: The University of Melbourne
+    date_start: 2020-03-01
+    date_end: 2026-01-01
     summary: |
-      Dissertation title: "Informed AI for Food Insecurity: Applications of Remote Sensing, Neural Networks and Transfer Learning for Digital Agricultural Monitoring". The dissertation included 3 first author journal articles in peer-reviewed journals and 1 conference proceeding. I also gave numerous talks in conferences, e.g., NAPPN, AGU, AAG.
-
+      Dissertation title: "Essays on Responsible Leadership"
       Notable Course:
-      - Deep Learning (CS)
-      - Machine Learning (CS)
-      - Remote Sensing (GIS)
-      - Applied Machine Learning for GIS (GIS)
-      - Microwave Remote Sensing (GIS)
-      - Photogrammetry (GIS)
-      - Geovisualization (GIS)
-      - many more
+      - Experimental Economics
+      - Advanced Econometrics
+      - Applied Microeconometrics
     button:
       text: 'Request my dissertation'
-      url: 'https://www.proquest.com/openview/adcfadc50701acea422e18dba05c33ed/1?pq-origsite=gscholar&cbl=18750&diss=y'
-  - area: M.Sc. in Geography and Environmental Resources
-    institution: Southern Illinois University Carbondale
-    date_start: 2017-08-21
-    date_end: 2019-07-31
-    summary: |
-      Thesis title: "Assessing the Impacts of Anthropogenic Drainage Structures on Hydrologic Connectivity Using High-Resolution Digital Elevation Models". The thesis was awarded as the best Masters thesis and 1 peer-reviewed journal article came out of it with several conference talks.
+      url: 'Link'
 
+  - area: M.Sc. in Economics
+    institution: The University of Melbourne
+    date_start: 2018-02-23
+    date_end: 2019-12-01
+    summary: |
+      Thesis title: "Essay Title".
       Notable Courses:
-      - Geographic Inforamtion Systems
-      - Advanced Geographic Inforamtion Systems
-      - Remote Sensing
-      - Advanced Remote Sensing
-      - Spatial Analysis
-      - GIS Programming
-      - Climate Data Science
+      - Advanced Microeconomics
+      - Advanced Macroeconomics
+      - Development Economics
+      - International Trade
     button:
       text: 'Download my MS Thesis'
-      url: 'https://opensiuc.lib.siu.edu/theses/2573/'
-  - area: Bachelor of Urban and Regional Planning
-    institution: Khulna University of Engineering and Technology, Bangladesh
-    date_start: 2011-01-01
-    date_end: 2015-07-15
+      url: 'Link'
+
+# Experience:
 work:
   - position: Data Scientist
     company_name: Bayer Crop Science
@@ -229,10 +221,12 @@ skills:
         icon: custom/camera-iris
 
 languages:
+  - name: Urdu
+    percent: 95
+  - name: Punjabi
+    percent: 85
   - name: English
-    percent: 100
-  - name: Bengali
-    percent: 100
+    percent: 80
 
 # Awards.
 #   Add/remove as many awards below as you like.
@@ -245,7 +239,8 @@ awards:
     awarder: Department of Geography and Environmental Resources, Southern Illinois University Carbondale 
     icon: ''
     summary: |
-      Each year, the Department of Geography and Environmental Resources at Southern Illinois University Carbondale awards a $1,000 scholarship to one undergraduate and one graduate student in recognition of exceptional academic performance. I was honored to receive this award in 2018 for achieving the highest GPA during my first year in the master’s program.
+      Each year, the Department of Geography and Environmental Resources at Southern Illinois University Carbondale awards a $1,000 scholarship to one undergraduate and one graduate   student in recognition of exceptional academic performance. I was honored to receive this award in 2018 for achieving the highest GPA during my first year in the master’s program.
+  
   - title: David G. Arey Memorial Award
     url: https://academics.siu.edu/earth-systems-sustainability/geography/scholarships-funding.php
     date: '2020-01-01'
@@ -253,6 +248,7 @@ awards:
     icon: ''
     summary: |
       The David G. Arey Memorial Award recognizes Master’s students with theses displaying creative thinking in natural resources and environmental problem solving. My thesis on "Assessing The Impacts of Anthropogenic Drainage Structures on Hydrologic Connectivity using High-Resolution Digital Elevation Models" received the award in 2020 with a $1000 award.
+
   - title: 3 Minute Thesis Runner Up
     date: '2022-04-05'
     awarder: Saint Louis University
@@ -263,4 +259,4 @@ awards:
 
 ## Hi, I'm Muhammad Arslan Iqbal 👋
 
-I’m currently researching household displacement due to disasters at University College London (UCL). My background is in structural engineering and I have over nine years of experience quantifying disaster risks. At the Global Earthquake Model (GEM) Foundation, I conducted earthquake risk assessment at the national and regional scales. At Arup, I was focused on the campus and building-specific scales, with an emphasis on modeling recovery after disasters.
+I'm a PhD Economics candidate at the University of Melbourne, focusing on behavioral and experimental economics. My research centers on strengthening responsible leadership within weak institutional frameworks for accountability. This is crucial for both public governance and private organizations. I plan to extend my research to explore the factors that hinder the implementation of welfare-optimizing reforms. My work is designed to offer actionable insights for fostering ethical leadership and effective policy.
