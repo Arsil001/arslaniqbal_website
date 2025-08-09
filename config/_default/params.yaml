@@ -39,6 +39,10 @@ header:
     logo:
       text: "Arslan Iqbal"
 
+# Branding that appears in the navbar
+brand:
+  text: "Arslan Iqbal"
+
 # Site footer
 footer:
   copyright:

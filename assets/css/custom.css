@@ -1,717 +1,304 @@
-/* -------------------------------------------------------------------------------- */
-/*                            My WEBSITE STYLE                                      */
-/* -------------------------------------------------------------------------------- */
+/* =========================================================
+   Arslan — Custom CSS (cleaned)
+   - Symmetric hero layout
+   - Avatar = 300x300, aligned with “Hi…” line
+   - Mobile navbar: hamburger LEFT, name CENTER, actions RIGHT
+   ========================================================= */
 
-/* Paragraph text color */
-p {
-  color: #4c4b4b;
+/* ---------- Optional brand fonts (keep if you use them) ---------- */
+@font-face {
+  font-family: 'Baskerville Old Face Std Small Caps';
+  src: url('/fonts/Baskerville Small Caps SSi Small Caps.ttf') format('truetype');
+  font-weight: normal; font-style: normal;
 }
-
-/* Footnotes */
-.footnotes {
-  font-size: 0.75em;
-}
-
-/* Font Awesome icons */
-.fas,
-.fab,
-.ai {
-  font-size: 1.0em;
+@font-face {
+  font-family: 'Bell T Medium';
+  src: url('/fonts/Bell T Medium.otf') format('opentype');
+  font-weight: normal; font-style: normal;
 }
 
-/* Table of Contents links */
-#TableOfContents li a,
-.toc-top li a {
-  color: #9d9f9a;
-  display: block;
-  padding: 0 1.5rem;
-  line-height: 1.75;
-  font-size: 0.75em;
-}
-#TableOfContents li a.active {
-  font-weight: normal;
-  color: var(--primary); /* use your primary color variable */
+/* ---------- Global niceties ---------- */
+:root{
+  --hero-max: 1180px;
+  --hero-gutter: clamp(24px, 5vw, 64px);
+  --avatar-size: 300px;           /* <— change here if you ever want bigger/smaller */
 }
 
-/* In-article links */
-.article-style a {
-  color: #5a464c;
-  font-weight: normal;
-  border-bottom: 1px solid #5a464c;
+body{ font-size: clamp(1rem, 0.96rem + .35vw, 1.15rem); }
+h1{ font-size: clamp(28px, 3.2vw, 38px); line-height: 1.2; margin: 1.25rem 0; }
+
+/* ---------- Header (color + remove borders) ---------- */
+#site-header, #site-header > nav{
+  background: rgb(24, 188, 156) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Footnote reference markers */
-a.footnote-ref {
-  border-bottom: 0;
-}
-a.footnote-ref::before { content: "["; }
-a.footnote-ref::after  { content: "]"; }
-
-/* Article title links */
-.article-title a {
-  color: #313131;
-  font-weight: normal;
-  transition: color 0.6s ease;
+/* Brand name on the left in desktop; centered on mobile below */
+#site-header > nav > div.order-0.h-100 > a{
+  font-family: 'Baskerville Old Face Std Small Caps', serif !important;
+  font-size: 25.5px !important;
+  font-weight: 500 !important;
 }
 
-/* Text selection highlight */
-::selection {
-  background: rgba(90, 70, 76, 0.15);
-}
-::-moz-selection {
-  background: rgba(90, 70, 76, 0.15);
-}
-
-/* Headings */
-h1 {
-  margin: 2rem 0 1.5rem;
-  font-weight: 500;
-}
-h2 {
-  margin: 2rem 0 1rem;
-  font-weight: 400;
-}
-h3 {
-  margin: 1.5rem 0 0.75rem;
-  font-weight: 400;
-}
-h4 {
-  margin: 1rem 0 0.5rem;
+/* Symmetric gutters desktop */
+#site-header .navbar, #site-header .container{
+  max-width: var(--hero-max);
+  margin-inline: auto;
+  padding-inline: var(--hero-gutter) !important;
 }
 
-/* Figure captions */
-figure figcaption {
-  margin: 0.75em 0 1.65rem;
-  line-height: 1.4;
-  font-size: 0.75rem;
-  text-align: center;
-  font-style: italic;
+/* ---------- Mobile navbar layout
+   Hamburger LEFT • Title CENTER • Search & Theme RIGHT
+------------------------------------------------------------------ */
+@media (max-width: 768px){
+  #site-header nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    min-height: 56px;  /* stable hit area */
+  }
+
+  /* Move hamburger to far LEFT */
+  #site-header nav button[aria-label="menu"]{
+    order: -1;
+    margin-left: 12px;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+
+  /* Keep search then theme on RIGHT */
+  #site-header nav button[aria-label="search"]{ order: 1; margin-right: 4px; }
+  #site-header nav button[aria-label="dark"],
+  #site-header nav button[aria-label="theme"]{ order: 2; margin-right: 12px; }
+
+  /* Center the site name absolutely */
+  #site-header > nav > div.order-0.h-100 > a{
+    position: absolute; left: 50%; transform: translateX(-50%);
+    margin: 0 !important; white-space: nowrap;
+  }
 }
 
-/* Navbar */
-.navbar {
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  border-bottom: 1px solid rgba(0,0,0,0.09);
+/* ---------- BIO / HERO section (resume-biography-3) ---------- */
+/* Remove excess top padding from the left profile column */
+#profile{ padding-top: 0 !important; }
+
+/* Center the whole hero, give equal gutters, two-column grid */
+#section-resume-biography-3 .resume-biography{
+  max-width: var(--hero-max);
+  margin-inline: auto;
+  padding-inline: var(--hero-gutter);
+  display: grid !important;
+  grid-template-columns: var(--avatar-size) 1fr;  /* fixed left, flexible right */
+  column-gap: var(--hero-gutter);
+  align-items: start;
 }
 
-/* Inline code blocks */
-code {
-  background-color: #f3f6ee;
-  color: #5a464c;
-  word-wrap: break-word;
-  border-radius: 0.25rem;
-  font-size: 80%;
-  border: 1px solid #5a464c;
-  padding: 0.2rem;
+/* Avatar wrapper: exact square and centered */
+#section-resume-biography-3 #profile{
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+#section-resume-biography-3 #profile .avatar-wrapper{
+  width: var(--avatar-size) !important;
+  height: var(--avatar-size) !important;
+  display: grid !important; place-items: center !important;
+  margin-inline: auto !important;
+  margin-top: 8px !important;        /* nudge to line up with “Hi…” */
+  overflow: visible !important;
+}
+/* Avatar image fills wrapper exactly */
+#section-resume-biography-3 #profile .avatar-wrapper .avatar{
+  width: 100% !important; height: 100% !important;
+  max-width: none !important; max-height: none !important;
+  border-radius: 50% !important; object-fit: cover !important; transform: none !important;
 }
 
-/* Buttons */
-.btn {
-  margin: 0.5rem;
-  padding: 0.5rem;
-  font-size: 0.8rem;
-  line-height: 0.9;
-  border-radius: 0.3rem;
+/* Tight, consistent gap under the circle */
+#section-resume-biography-3 #profile .portrait-title{ margin-top: 10px !important; }
+#section-resume-biography-3 #profile .portrait-title .text-3xl{
+  margin-top: 0 !important; line-height: 1.15 !important;
 }
 
-/* Summary/Details */
-summary {
-  display: list-item;
-  cursor: pointer;
-  font-weight: bold;
+/* Right column: let paragraphs breathe (wider measure than default) */
+#section-resume-biography-3 .resume-biography .prose{
+  max-width: min(90ch, 100%) !important;
 }
-details p {
-  margin-left: 0.3rem;
-  padding-left: 0.7rem;
-  border-left: 0;
+#section-resume-biography-3 .resume-biography .prose p{ line-height: 1.6; }
+
+/* ---------- Tablet/phone: stack sections nicely ---------- */
+@media (max-width: 980px){
+  #section-resume-biography-3 .resume-biography{
+    display: block !important;
+    max-width: 92vw; padding-inline: 4vw;
+  }
+  #section-resume-biography-3 #profile .avatar-wrapper{
+    width: clamp(200px, 45vw, 300px) !important;
+    height: clamp(200px, 45vw, 300px) !important;
+    margin-top: 6px !important;
+  }
 }
 
-/* Tables */
-.table th,
-.table td {
-  color: #4c4b4b;
-  border-top: 1px solid silver;
-  border-bottom: 1px solid silver;
-}
-table > tbody {
-  color: #4c4b4b;
-}
+/* ----  Mobile-first swap: hamburger left, title center  ---- */
+@media (max-width: 1023px) {           /* Tailwind’s `lg` breakpoint = 1024px */
+  /* 1.  Make the navbar a flex container that allows re-ordering */
+  #site-header > nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important; /* keeps logo & menu on edges */
+    position: relative;
+  }
 
-/* Alerts and side-notes */
-.alert,
-.article-style aside,
-.alert-note {
-  color: rgb(90, 70, 76);
-  background-color: #f3f6ee;
-  border-color: #5a464c;
-}
-.article-style aside p::before,
-div.alert > div:first-child::before {
-  position: absolute;
-  top: -0.5rem;
-  left: -2rem;
-  font-size: 1.5rem;
-  color: #5a464c;
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: '\f05a';
-  width: 1.5rem;
-  text-align: center;
-}
+  /* 2.  Push the hamburger to the leftmost slot */
+  #site-header > nav > label[for="nav-toggle"] {
+    order: -1 !important;              /* first in flex order */
+    margin-right: auto !important;     /* keeps everything else right */
+  }
 
-/* Article body base font-size */
-.article-style {
-  font-size: 1rem;
-}
+  /* 3.  Center the site title (logo) */
+  #site-header > nav > div.order-0.h-100 {  /* “Arslan Iqbal” wrapper */
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+  }
 
-/* Preformatted code blocks */
-pre code {
-  background-color: transparent;
-  border: none;
-}
-
-/* Chroma code highlighting */
-.chroma {
-  border-radius: 0.25rem;
-  font-size: 90%;
-  border: 1px solid silver;
-  padding: 1rem;
-}
-
-/* Dark mode overrides */
-.dark p {
-  color: rgba(255,255,255,0.7);
-}
-body.dark,
-.dark input {
-  color: rgba(255,255,255,0.7);
-}
-.dark .card-simple {
-  background-color: #373636;
-  border-color: #555555;
-}
-.dark .navbar {
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  border: 1px solid #2b2a2a;
-}
-body.dark,
-.dark {
-  background: #2b2a2a;
-}
-.dark code {
-  background-color: #2b2a2a;
-  color: silver;
-  word-wrap: break-word;
-  border-radius: 0.25rem;
-  font-size: 80%;
-  border: 1px solid silver;
-  padding: 0.2rem;
-}
-.dark .btn-outline-primary {
-  color: #f3f6ee;
-  border-color: #f3f6ee;
-}
-.dark .form-control {
-  color: #f3f6ee;
-  background-color: #373636;
-}
-.dark .alert,
-.dark .article-style aside,
-.dark .alert-note {
-  color: #c3c3c3;
-  background-color: #434343;
-  border-color: #c3c3c3;
-}
-.dark .article-style aside p::before,
-.dark div.alert > div:first-child::before {
-  position: absolute;
-  top: -0.5rem;
-  left: -2rem;
-  font-size: 1.5rem;
-  color: #c3c3c3;
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: '\f05a';
-  width: 1.5rem;
-  text-align: center;
-}
-.dark details p {
-  border-left: 0 solid rgba(255,255,255,0.5);
-}
-.dark .table th,
-.dark .table td {
-  color: rgba(255,255,255,0.7);
-  border-top: 1px solid rgba(255,255,255,0.7);
-  border-bottom: 1px solid rgba(255,255,255,0.7);
-}
-.dark table > tbody {
-  color: rgba(255,255,255,0.7);
-}
-.dark table > tbody > tr:nth-child(odd) > td,
-.dark table > tbody > tr:nth-child(odd) > th {
-  background-color: #2b2a2a;
-}
-.dark table > tbody > tr:hover > td,
-.dark table > tbody > tr:hover > th {
-  background-color: #2b2a2a;
-}
-.dark pre code {
-  border: none;
-}
-.dark .chroma {
-  color: #f8f8f2;
-  background-color: #2b2a2a;
-  border-radius: 0.25rem;
-  font-size: 90%;
-  border: 1px solid #555555;
-  padding: 1rem;
-}
-.dark .btn-primary,
-.dark .btn.btn-primary.active {
-  background-color: #2b2a2a;
-  border: 1px solid #555555;
-  color: #f8f8f2;
-}
-#TableOfContents {
-  padding-left: 0;
-  border-left: 0 solid rgba(255,255,255,0.65);
-}
-.dark #TableOfContents li a:hover,
-.toc-top li a:hover {
-  color: #f8f8f2;
-  text-decoration: none;
-}
-.dark #TableOfContents li a.active {
-  font-weight: normal;
-  color: #f8f8f2;
-}
-.dark .article-style a {
-  color: #f3f6ee;
-  font-weight: normal;
-  border-bottom: 1px solid #f3f6ee;
-}
-.dark ::selection {
-  background: rgba(243,246,238,0.15);
-}
-.dark ::-moz-selection {
-  background: rgba(243,246,238,0.15);
-}
-.dark a.footnote-ref {
-  border-bottom: 0;
-}
-.dark a.footnote-ref::before {
-  content: "[";
-}
-.dark a.footnote-ref::after {
-  content: "]";
-}
-
-/* Mobile sidebar hide */
-@media screen and (max-width: 760px) {
-  aside#sidebar-nav {
+  /* 4.  (Optional) hide the right-hand search / theme buttons on very small
+         screens if they still push the title off-center.  Uncomment if needed.
+  #site-header > nav > div.order-1 {
     display: none !important;
+  }
+  */
+}
+
+/* ----  Desktop behaviour stays untouched  ---- */
+@media (min-width: 1024px) {
+  /* revert any overrides so the desktop layout is unchanged */
+  #site-header > nav > label[for="nav-toggle"] { order: unset !important; }
+  #site-header > nav > div.order-0.h-100 {
+    position: static !important;
+    transform: none !important;
   }
 }
 
 
-/* 2) Profile name under the picture should match body text */
-.author-name,
-.profile-name {
-  font-family: 'Libre Franklin', sans-serif !important;
-  font-size:    18px                  !important;
-  font-weight:  400                   !important;
+/* ----- tighten the space between search & theme buttons ----- */
+#site-header .order-1 > * + * {
+  margin-left: -0.5rem !important;   /* default was ~1 rem */
+}
+
+/* --------------------------------------------------------
+   Mobile: ≤ 1023 px
+-------------------------------------------------------- */
+@media (max-width: 1023px) {
+  #site-header > nav {
+    display: grid !important;
+    grid-template-columns: 48px 1fr 64px; /* Hamburger | Title | Buttons */
+    align-items: center;
+    justify-items: center;
+    padding: 0 0.5rem;      /* keeps everything inside viewport */
+  }
+
+  /* Hamburger – left cell */
+  label[for="nav-toggle"] {
+    grid-column: 1;
+    justify-self: start;
+    margin: 0;
+  }
+
+  /* Brand / Name – dead-center */
+  #site-header > nav > .order-0.h-100 {
+    grid-column: 2;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Right-hand group – right cell (search + theme) */
+  #site-header > nav > .order-1 {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    gap: -0.5rem;            /* tighter spacing between icons */
+  }
+}
+
+/* --------------------------------------------------------
+   Desktop: ≥ 1024 px (restore original layout)
+-------------------------------------------------------- */
+@media (min-width: 1024px) {
+  #site-header > nav {
+    display: flex !important;
+  }
+}
+
+/* -----------------  MOBILE ONLY  ----------------- */
+/* ----------  MOBILE ONLY  ---------- */
+@media (max-width: 1023px) {
+  #site-header > nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 0.5rem !important;
+    line-height: 1 !important;           /* collapse line-height */
+  }
+
+  /* Hamburger – left */
+  label[for="nav-toggle"] {
+    margin: 0 !important;
+  }
+
+  /* Title – absolute center */
+  .navbar-brand {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Right buttons – far right */
+  .order-1 {
+    margin: 0 !important;
+    display: flex;
+    gap: -0.5rem !important;
+  }
 }
 
 
-
-/* Give all list items a bit of breathing room */
-li {
-  margin-bottom: 0.5rem !important;
+/* Remove top/bottom padding on mobile */
+@media (max-width: 1023px) {
+  #site-header {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }
 
+/* Mobile-only overrides */
+@media (max-width: 1023px) {
+  /* Hamburger (left icon) */
+  #site-header label[for="nav-toggle"] {
+    padding-left: -0.5rem !important;   /* adjust as needed */
+  }
 
-/* Force that flex‐none/m-w-[130px] box to be 320px wide */
-.flex-none.m-w-\[130px\] {
-  width: 325px !important;
-  /* if you want it to grow or shrink less: */
-  flex: 0 0 325px !important;
-}
+  /* Theme-toggle (rightmost icon) */
+  #site-header .theme-toggle {
+    padding-right: -0.5rem !important;
+  }
 
-#section-resume-biography-3 > 
-div.resume-biography.px-3.flex.flex-col.md\:flex-row.justify-center.gap-12 > 
-div.flex-auto.max-w-prose.md\:mt-12 > 
-div.pt-2.justify-content-center.prose.prose-slate.dark\:prose-invert {
-  max-width: 800px !important;
-  width:     100%  !important;
-  text-align: justify !important;
-}
-
-/* bump the bio/text container from 680px down to 640px */
-.flex-auto.max-w-prose {
-  max-width: 750px   !important;
-  width:     100%    !important;
-}
-
-#section-resume-biography-3 {
-  padding-top: 0px !important;
-}
-
-#profile {
-  padding-top: 110px !important;
-}
-
-
-/* avatar circle size */
-#profile .avatar-wrapper .avatar {
-  width: 350px !important;   /* new diameter */
-  height: 350px !important;  /* match width */
-  border-radius: 50% !important; /* keep it perfectly round */
-  object-fit: cover;         /* ensures the image covers the box */
-  /* …then pull it back by half its own width/height */
-  transform: translate(-25%, -25%);
-}
-
-/* if you need to tweak the wrapper’s padding to center it: */
-#profile .avatar-wrapper {
-  padding: 10px !important;  /* adjust as needed */
-}
-
-/* Increase space above the “Arslan Iqbal” title */
-#profile .portrait-title .text-3xl {
-  /* Option A: increase the margin */
-  margin-top: 45px !important; /* was ~24px (mt-6), now 40px */
-}
-
-/* Remove extra top margin on the subtitle under profile */
-#profile > div.portrait-title.dark\:text-white > h3 {
-  margin-top: 0 !important;
-}
-
-/*####################### HEADER OF WEBSITE ########################*/
-
-/* Default header link color */
-#site-header nav a,
-#site-header nav button {
-  color: rgb(4, 32, 27) !important;
-  transition: color .2s ease;
-}
-
-/* Make the tab turn white on hover/focus */
-#site-header nav a:hover,
-#site-header nav a:focus,
-#site-header nav a:focus-visible,
-#site-header nav .nav-link:hover,
-#site-header nav .menu a:hover {
-  color: #fff !important;
-}
-
-/* Ensure icons inside links also turn white */
-#site-header nav a:hover svg,
-#site-header nav a:focus svg {
-  fill: currentColor !important;
-  stroke: currentColor !important;
-}
-
-/* Active/current page tabs should also be white */
-#site-header nav .active,
-#site-header nav .is-active,
-#site-header nav .current,
-#site-header nav a[aria-current="page"] {
-  color: #fff !important;
-}
-
-/* (Optional) if your theme uses an underline/border on hover, make it white too */
-#site-header nav a:hover,
-#site-header nav a:focus {
-  border-color: #fff !important;
-  text-decoration-color: #fff !important;
-}
-
-/* Dark mode too */
-html.dark #site-header nav a:hover,
-html.dark #site-header nav a:focus {
-  color: #fff !important;
-}
-
-/* Make the header bar solid green, always */
-#site-header,
-#site-header > nav,
-#site-header.headroom--not-top,   /* common sticky class */
-#site-header.is-sticky,           /* some themes add this */
-html.dark #site-header,
-html.dark #site-header > nav {
-  background: rgb(24, 188, 156) !important;
-  background-image: none !important; /* nuke gradients */
-  --tw-bg-opacity: 1 !important;     /* Tailwind override */
-}
-
-/* If the theme uses blur/transparent overlays, disable them */
-#site-header,
-#site-header > nav {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-/* Ensure inner wrappers don’t reintroduce a bg */
-#site-header .navbar,
-#site-header .nav-bg {
-  background: inherit !important;
-}
-
-
-/* Left Padding before website name on the top left */
-#site-header .navbar,
-#site-header .container {
-  padding-left: 125px !important;
-  padding-right: 125px !important;
-}
-
-/* My Name in the Navigation Bar top left */
-#site-header > nav > div.order-0.h-100 > a {
-  font-family: "Libre Franklin", sans-serif !important;
-  font-size: 21.5px !important;
-  font-weight: 700 !important;
-
-  line-height: 27px !important;
-  margin-right: 18px !important;
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
- 
-
-  position: relative !important;
-  text-align: left !important;
-
-  /* helps padding/line-height behave predictably on an <a> */
-  display: inline-block !important;
-}
-
-/* For Tags in the Navigation bar on top other than Name: */
-#nav-menu,
-#nav-menu li,
-#nav-menu a,
-#nav-menu .nav-link {
-  font-family: 'Libre Franklin', sans-serif !important;
-  font-size: 15px !important;
-  font-weight: 400 !important;
-}
-
-
-/*########################### BODY ###########################*/
- /* For Hi! Line */
-#hi-im-muhammad-arslan-iqbal- {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 40.5px !important;
-  font-weight: 500 !important;
-
-  line-height: 50.625px !important;
-  display: block !important;   /* ensures height is respected */
-  hyphens: manual !important;
-
-  /* margins (logical + physical for safety) */
-  margin-block-start: 36px !important;
-  margin-block-end: 27px !important;
-  margin-top: 36px !important;
-  margin-bottom: 27px !important;
-  margin-inline-start: 0 !important;
-  margin-inline-end: 0 !important;
-}
-
-/* For The Paragraph About Me */
-#section-resume-biography-3 >
-div.resume-biography.px-3.flex.flex-col.md\:flex-row.justify-center.gap-12 >
-div.flex-auto.max-w-prose.md\:mt-12 >
-div.pt-2.justify-content-center.prose.prose-slate.dark\:prose-invert >
-div > p {
-  font-family: 'Libre Franklin', sans-serif !important;
-  font-size: 18px !important;
-  font-weight: 400 !important;
-
-  line-height: 29.7px !important;
-
-  /* box size */
-  height: 178.2px !important;
-
-  /* margins (logical + physical for safety) */
-  margin-block-start: 0px !important;
-  margin-block-end: 18px !important;
-  margin-top: 0px !important;
-  margin-bottom: 18px !important;
-  margin-inline-start: 0px !important;
-  margin-inline-end: 0px !important;
-}
-
-/* For the list items of Education and Experience */
-li,
-.prose li { /* beats Tailwind Typography */
-  font-family: 'Libre Franklin', sans-serif !important;
-  font-size: 18px !important;
-  font-weight: 400 !important;
-}
-
-/* Name under the avatar: */
-#profile > div.portrait-title.dark\:text-white > div.text-3xl.font-bold.mb-2.mt-6 {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 31.5px !important;
-  font-weight: 300 !important; /* overrides Tailwind's font-bold */
-}
-
-/* For Role: PhD Economics and Institute under Avatar: */
-#profile > div.portrait-title.dark\:text-white > h3.font-semibold.mb-1,
-#profile > div.portrait-title.dark\:text-white > div:nth-child(3),
-#profile > div.portrait-title.dark\:text-white > div:nth-child(3) * {
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 18px !important;
-  font-weight: 300 !important; /* overrides Tailwind's font-semibold */
-}
-
-/* Background of Bio Page: */
-/* Section is the positioning context */
-#section-resume-biography-3 {
-  position: relative !important;
-  overflow-x: clip; /* avoid tiny horizontal scrollbars */
-}
-
-/* Full-bleed background */
-#section-resume-biography-3 > div.home-section-bg.bg-image {
-  position: absolute !important;
-  top: 0; bottom: 0;
-  left: 50%;
-  width: 100vw;                 /* edge-to-edge */
-  transform: translateX(-50%);  /* center across page */
-  z-index: 0 !important;
-
-  background-image: url("/media/stacked-peaks.svg") !important;
-  background-repeat: no-repeat !important;
-  background-position: center bottom !important;
-  background-size: cover !important; /* try 'contain' if you prefer */
-}
-
-/* Keep content above the bg */
-#section-resume-biography-3 > *:not(.home-section-bg) {
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-/* Kill any theme overlay */
-#section-resume-biography-3 > div.home-section-bg.bg-image::before,
-#section-resume-biography-3 > div.home-section-bg.bg-image::after {
-  content: none !important;
-  background: none !important;
-}
-
-
-
-/*########################### FOOTER ###########################*/
-/* Permanent green footer, regardless of light/dark mode */
-#top > div.page-footer,
-html.dark #top > div.page-footer,
-body.dark #top > div.page-footer {
-  background: rgb(24, 188, 156) !important;
-  background-image: none !important;   /* kill gradients */
-  color: rgb(4, 32, 27) !important;    /* readable text on that green */
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
-/* Make links/icons inside the footer readable too */
-#top > div.page-footer a,
-#top > div.page-footer button {
-  color: rgb(4, 32, 27) !important;
-}
-#top > div.page-footer svg {
-  fill: currentColor !important;
-  stroke: currentColor !important;
-}
-
-/* Optional: keep hover readable on green */
-#top > div.page-footer a:hover {
-  opacity: .85; /* subtle hover without changing color */
+  /* Search icon (immediately left of the toggle) */
+  #site-header [data-search-toggle] {
+    padding-right: -0.5rem !important; /* shrinks the gap */
+  }
 }
 
 
 
 
 
-/*########################### SEARCH ###########################*/
-/* === Search overlay: width + clean close button === */
-/* === Search overlay: title visible + aligned close button + fixed width === */
 
-:root{
-  --panel-pad-top: 80px;            /* top padding of the white overlay */
-  --title-size: 48px;               /* “Search” heading size */
-  --title-gap: 24px;                /* space under heading */
 
-  --search-width: min(1100px, 92vw); /* width of the bar (tweak to taste) */
-  --close-size: 40px;                /* round X size */
-  --close-nudge: 40px;               /* fine-tune X vertically (+/− px) */
-}
 
-/* Make sure the overlay has top padding */
-#search, .search-modal { padding-top: var(--panel-pad-top) !important; background:#fff !important; }
 
-/* Center the Pagefind form and lock width */
-.pagefind-ui__form{
-  position: relative !important;
-  width: var(--search-width) !important;
-  max-width: none !important;
-  margin: 0 auto !important;
-}
-
-/* SHOW the big “Search” title (we previously hid it by mistake) */
-#search::before, .search-modal::before{
-  content: "Search";
-  display: block;
-  /* align the title with the bar by giving it the same width & centering */
-  width: var(--search-width);
-  margin: 0 auto var(--title-gap) auto;
-
-  font-family: "DM Sans", sans-serif;
-  font-weight: 500;
-  font-size: var(--title-size);
-  line-height: 1.2;
-  color: #333;
-}
-
-/* Input: thin, light, pill; let Pagefind draw its own icon */
-.pagefind-ui__search-input{
-  width: 100% !important;
-  border: 0.8px solid rgb(222,222,222) !important;
-  border-radius: 9999px !important;
-  padding: 14px 24px 14px 46px !important;
-  font-family: "Libre Franklin", sans-serif !important;
-  font-size: 18px !important;
-  background: #fff !important;
-  background-image: none !important; /* avoid duplicate magnifier */
-  outline: none !important; box-shadow: none !important;
-}
-.pagefind-ui__search-input::placeholder{ color:#8d7f85 !important; opacity:1; }
-
-/* Close button: small, round, aligned with the title line */
-button.search-close[aria-label="search"]{
-  position: fixed !important;
-  /* horizontally: right edge of the centered bar */
-  right: calc((100vw - var(--search-width)) / 2) !important;
-  /* vertically: center on the title line */
-  top: calc(var(--panel-pad-top) + (var(--title-size) * 0.5) - (var(--close-size) * 0.5) + var(--close-nudge)) !important;
-
-  width: var(--close-size) !important;
-  height: var(--close-size) !important;
-  padding: 0 !important; margin: 0 !important; border: 0 !important;
-  border-radius: 9999px !important;
-  background: #6f7882 !important; color:#fff !important;
-  display: inline-flex !important; align-items:center !important; justify-content:center !important;
-  box-shadow: none !important; outline: none !important;
-  z-index: 3 !important;
-}
-/* kill any theme decorations */
-button.search-close[aria-label="search"]::before,
-button.search-close[aria-label="search"]::after { content: none !important; }
-button.search-close[aria-label="search"] svg{
-  width: 60% !important; height: 60% !important;
-  stroke: currentColor !important; color:#fff !important;
-}
-
-/* Keep overlay white even in dark mode */
-html.dark #search, html.dark .search-modal { background:#fff !important; }
 
 
