@@ -495,6 +495,7 @@ html.dark #site-header > nav {
   font-weight: 400 !important;
 }
 
+
 /*########################### BODY ###########################*/
  /* For Hi! Line */
 #hi-im-muhammad-arslan-iqbal- {
@@ -627,5 +628,90 @@ body.dark #top > div.page-footer {
   opacity: .85; /* subtle hover without changing color */
 }
 
+
+
+
+
+/*########################### SEARCH ###########################*/
+/* === Search overlay: width + clean close button === */
+/* === Search overlay: title visible + aligned close button + fixed width === */
+
+:root{
+  --panel-pad-top: 80px;            /* top padding of the white overlay */
+  --title-size: 48px;               /* “Search” heading size */
+  --title-gap: 24px;                /* space under heading */
+
+  --search-width: min(1100px, 92vw); /* width of the bar (tweak to taste) */
+  --close-size: 40px;                /* round X size */
+  --close-nudge: 40px;               /* fine-tune X vertically (+/− px) */
+}
+
+/* Make sure the overlay has top padding */
+#search, .search-modal { padding-top: var(--panel-pad-top) !important; background:#fff !important; }
+
+/* Center the Pagefind form and lock width */
+.pagefind-ui__form{
+  position: relative !important;
+  width: var(--search-width) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+}
+
+/* SHOW the big “Search” title (we previously hid it by mistake) */
+#search::before, .search-modal::before{
+  content: "Search";
+  display: block;
+  /* align the title with the bar by giving it the same width & centering */
+  width: var(--search-width);
+  margin: 0 auto var(--title-gap) auto;
+
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: var(--title-size);
+  line-height: 1.2;
+  color: #333;
+}
+
+/* Input: thin, light, pill; let Pagefind draw its own icon */
+.pagefind-ui__search-input{
+  width: 100% !important;
+  border: 0.8px solid rgb(222,222,222) !important;
+  border-radius: 9999px !important;
+  padding: 14px 24px 14px 46px !important;
+  font-family: "Libre Franklin", sans-serif !important;
+  font-size: 18px !important;
+  background: #fff !important;
+  background-image: none !important; /* avoid duplicate magnifier */
+  outline: none !important; box-shadow: none !important;
+}
+.pagefind-ui__search-input::placeholder{ color:#8d7f85 !important; opacity:1; }
+
+/* Close button: small, round, aligned with the title line */
+button.search-close[aria-label="search"]{
+  position: fixed !important;
+  /* horizontally: right edge of the centered bar */
+  right: calc((100vw - var(--search-width)) / 2) !important;
+  /* vertically: center on the title line */
+  top: calc(var(--panel-pad-top) + (var(--title-size) * 0.5) - (var(--close-size) * 0.5) + var(--close-nudge)) !important;
+
+  width: var(--close-size) !important;
+  height: var(--close-size) !important;
+  padding: 0 !important; margin: 0 !important; border: 0 !important;
+  border-radius: 9999px !important;
+  background: #6f7882 !important; color:#fff !important;
+  display: inline-flex !important; align-items:center !important; justify-content:center !important;
+  box-shadow: none !important; outline: none !important;
+  z-index: 3 !important;
+}
+/* kill any theme decorations */
+button.search-close[aria-label="search"]::before,
+button.search-close[aria-label="search"]::after { content: none !important; }
+button.search-close[aria-label="search"] svg{
+  width: 60% !important; height: 60% !important;
+  stroke: currentColor !important; color:#fff !important;
+}
+
+/* Keep overlay white even in dark mode */
+html.dark #search, html.dark .search-modal { background:#fff !important; }
 
 
