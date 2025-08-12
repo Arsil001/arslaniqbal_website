@@ -266,29 +266,720 @@ h1{ font-size: clamp(28px, 3.2vw, 38px); line-height: 1.2; margin: 1.25rem 0; }
 }
 
 
-/* Remove top/bottom padding on mobile */
-@media (max-width: 1023px) {
-  #site-header {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+/* =========================================
+   SEARCH OVERLAY (Nicole-style; restored)
+   ========================================= */
+:root{ --search-width: min(1100px, 92vw); --panel-pad-top: 80px; }
+
+#search, .search-modal{
+  padding-top: var(--panel-pad-top) !important;
+  background: #fff !important;
+}
+
+/* Big “Search” heading, centered with the bar */
+#search::before, .search-modal::before{
+  content: "Search";
+  display: block;
+  width: var(--search-width);
+  margin: 0 auto 24px auto;
+  font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 500;
+  font-size: clamp(32px, 2.2vw, 48px);
+  line-height: 1.2;
+  color: #333;
+}
+
+/* Keep the Pagefind form pinned to a fixed width and centered */
+.pagefind-ui__form{
+  position: relative !important;
+  width: var(--search-width) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+}
+
+/* Pretty pill input */
+.pagefind-ui__search-input{
+  width: 100% !important;
+  border: 2px solid #6f5a61 !important;      /* your maroon-ish line */
+  border-radius: 9999px !important;
+  padding: 14px 24px 14px 48px !important;
+  font-size: 18px !important;
+  background: #fff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.pagefind-ui__search-input::placeholder{ color:#8d7f85 !important; }
+
+/* Round “X” close button aligned to the title line */
+button.search-close[aria-label="search"]{
+  position: fixed !important;
+  right: calc((100vw - var(--search-width)) / 2) !important;
+  top: calc(var(--panel-pad-top) - 2px) !important;
+  width: 40px !important; height: 40px !important;
+  border-radius: 9999px !important;
+  background: #6f7882 !important; color:#fff !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  padding: 0 !important; border: 0 !important; box-shadow: none !important;
+}
+button.search-close[aria-label="search"] svg{
+  width: 60% !important; height: 60% !important; color:#fff !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MOBILE NAV LAYOUT (<= 960)
+   ========================= */
+@media (max-width: 960px){
+
+  /* kill big gutters on mobile header */
+  #site-header { padding: 0 !important; }
+  #site-header .navbar{
+    position: relative !important;
+    height: 56px !important;
+    padding: 0 14px !important;
+  }
+
+  /* 1) Brand perfectly centered and stable (even when menu opens) */
+  #site-header .navbar .navbar-brand{
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    font-size: clamp(18px, 5.2vw, 22px) !important;
+    white-space: nowrap !important;
+    pointer-events: none; /* keeps taps from misfiring; remove if you want it clickable */
+  }
+
+  /* 2) Hamburger pinned left (label for the hidden checkbox HugoBlox uses) */
+  #site-header label[for="nav-toggle"],
+  #nav-toggle + label{
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+  }
+  /* Keep it as a hamburger (don’t morph to an X if the theme tries) */
+  #nav-toggle:checked + label svg{ transform: none !important; opacity: 1 !important; }
+  #nav-toggle:checked + label::before,
+  #nav-toggle:checked + label::after{ display: none !important; }
+
+  /* 3) Search and theme icons pinned right, evenly spaced */
+  /* search button */
+  #site-header .navbar :is(a,button)[aria-label*="search" i]{
+    position: absolute !important;
+    right: 54px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    padding: 8px !important;
+  }
+  /* theme (dark/light) button – covers common label variations */
+  #site-header .navbar :is(a,button)[aria-label*="dark" i],
+  #site-header .navbar :is(a,button)[aria-label*="light" i],
+  #site-header .navbar :is(a,button)[aria-label*="theme" i],
+  #site-header .navbar :is(a,button)[title*="Dark" i],
+  #site-header .navbar :is(a,button)[title*="Light" i]{
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    padding: 8px !important;
+  }
+
+  /* 4) Smooth slide-down menu (works with the stock checkbox toggle) */
+  /* Grab the menu container: most themes render it as a UL right inside nav. */
+  #site-header #nav-toggle ~ ul,
+  #site-header #nav-toggle ~ .nav-menu,
+  #site-header #nav-toggle ~ .menu{
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    transition: max-height .35s ease, opacity .25s ease !important;
+    border-top: 1px solid rgba(0,0,0,.06);
+  }
+  #site-header #nav-toggle:checked ~ ul,
+  #site-header #nav-toggle:checked ~ .nav-menu,
+  #site-header #nav-toggle:checked ~ .menu{
+    max-height: 70vh !important;
+    opacity: 1 !important;
+  }
+
+  /* Left indent + consistent row height for items in the dropdown */
+  #site-header nav :is(ul.navbar-nav, ul.menu, nav > ul) > li > a{
+    display: block !important;
+    padding: 14px 16px 14px 24px !important;
+  }
+
+  /* 5) Phone-friendly hero heading size */
+  #hi-im-muhammad-arslan-iqbal-{
+    font-size: clamp(20px, 6vw, 28px) !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
   }
 }
 
-/* Mobile-only overrides */
-@media (max-width: 1023px) {
-  /* Hamburger (left icon) */
-  #site-header label[for="nav-toggle"] {
-    padding-left: -0.5rem !important;   /* adjust as needed */
+/* =========================
+   SEARCH OVERLAY (keep)
+   ========================= */
+:root{ --search-width: min(1100px, 92vw); }
+#search, .search-modal { padding-top: 80px !important; background:#fff !important; }
+.pagefind-ui__form{
+  position: relative !important;
+  width: var(--search-width) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+}
+#search::before, .search-modal::before{
+  content: "Search";
+  display: block;
+  width: var(--search-width);
+  margin: 0 auto 24px auto;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.2;
+  color: #333;
+}
+.pagefind-ui__search-input{
+  width: 100% !important;
+  border: 2px solid #6e5960 !important;
+  border-radius: 9999px !important;
+  padding: 14px 24px 14px 46px !important;
+  font-family: "Libre Franklin", sans-serif !important;
+  font-size: 18px !important;
+  background: #fff !important;
+  outline: none !important; box-shadow: none !important;
+}
+.pagefind-ui__search-input::placeholder{ color:#8d7f85 !important; opacity:1; }
+button.search-close[aria-label="search"]{
+  position: fixed !important;
+  right: calc((100vw - var(--search-width)) / 2) !important;
+  top: 118px !important;
+  width: 40px !important; height: 40px !important;
+  border-radius: 9999px !important;
+  background: #6f7882 !important; color:#fff !important;
+  display: inline-flex !important; align-items:center !important; justify-content:center !important;
+  box-shadow: none !important; outline: none !important; border: 0 !important;
+}
+button.search-close[aria-label="search"] svg{
+  width: 60% !important; height: 60% !important;
+  stroke: currentColor !important; color:#fff !important;
+}
+html.dark #search, html.dark .search-modal { background:#fff !important; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =======================
+   Mobile navbar final pass
+   ======================= */
+@media (max-width: 960px){
+
+  /* compact header height & gutters */
+  #site-header .navbar{
+    height: 56px !important;
+    padding: 0 14px !important;
+    position: relative !important;
   }
 
-  /* Theme-toggle (rightmost icon) */
-  #site-header .theme-toggle {
-    padding-right: -0.5rem !important;
+  /* BRAND perfectly centered (stable when menu opens) */
+  #site-header .navbar .navbar-brand{
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    font-size: clamp(18px, 5.2vw, 22px) !important;
+    white-space: nowrap !important;
+    pointer-events: none; /* keep taps from stealing focus */
   }
 
-  /* Search icon (immediately left of the toggle) */
-  #site-header [data-search-toggle] {
-    padding-right: -0.5rem !important; /* shrinks the gap */
+  /* HAMBURGER pinned left (works with most HugoBlox toggles) */
+  /* covers nav-toggle / mobile-menu / menu-toggle ids */
+  #site-header input[type="checkbox"][id*="nav"],
+  #site-header input[type="checkbox"][id*="menu"]{ display: none; } /* checkbox itself stays hidden */
+
+  #site-header label[for*="nav"],
+  #site-header label[for*="menu"]{
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 36px !important; height: 36px !important;
+    padding: 8px !important;
+    display: inline-flex !important; align-items:center !important; justify-content:center !important;
+    cursor: pointer !important;
+  }
+  /* keep hamburger from morphing into an X */
+  #site-header label[for*="nav"] .icon-close,
+  #site-header label[for*="menu"] .icon-close{ display: none !important; }
+  #site-header input[type="checkbox"][id*="nav"]:checked + label svg,
+  #site-header input[type="checkbox"][id*="menu"]:checked + label svg{
+    transform: none !important; opacity: 1 !important;
+  }
+
+  /* SEARCH & THEME pinned right, evenly spaced */
+  #site-header .navbar :is(a,button)[aria-label*="search" i],
+  #site-header .navbar .js-search{
+    position: absolute !important; right: 14px !important;
+    top: 50% !important; transform: translateY(-50%) !important; padding: 8px !important;
+  }
+  #site-header .navbar :is(a,button)[aria-label*="dark" i],
+  #site-header .navbar :is(a,button)[aria-label*="light" i],
+  #site-header .navbar :is(a,button)[aria-label*="theme" i],
+  #site-header .navbar :is(a,button)[title*="Dark" i],
+  #site-header .navbar :is(a,button)[title*="Light" i]{
+    position: absolute !important; right: 54px !important;
+    top: 50% !important; transform: translateY(-50%) !important; padding: 8px !important;
+  }
+
+  /* ===== DROPDOWN PANEL =====
+     We build a proper panel with background, slide-down animation, and left-indented links.
+     Targets common containers: direct UL, .nav-menu, .menu
+  */
+  :root{ --ai-header-green: rgb(24, 188, 156); } /* your header green */
+
+  /* Base (hidden) */
+  #site-header input[type="checkbox"][id*="nav"] ~ ul,
+  #site-header input[type="checkbox"][id*="nav"] ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="nav"] ~ .menu,
+  #site-header input[type="checkbox"][id*="menu"] ~ ul,
+  #site-header input[type="checkbox"][id*="menu"] ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="menu"] ~ .menu{
+    position: absolute !important;
+    top: 56px !important; left: 0 !important;
+    width: 100% !important;
+    background: var(--ai-header-green) !important;  /* << solid background */
+    z-index: 50 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    transition: max-height .35s ease, opacity .25s ease !important;
+    border-top: 1px solid rgba(0,0,0,.06);
+  }
+
+  /* Shown state */
+  #site-header input[type="checkbox"][id*="nav"]:checked ~ ul,
+  #site-header input[type="checkbox"][id*="nav"]:checked ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="nav"]:checked ~ .menu,
+  #site-header input[type="checkbox"][id*="menu"]:checked ~ ul,
+  #site-header input[type="checkbox"][id*="menu"]:checked ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="menu"]:checked ~ .menu{
+    max-height: 70vh !important;
+    opacity: 1 !important;
+  }
+
+  /* Left-indent items and force left alignment */
+  #site-header nav :is(ul.navbar-nav, ul.menu, nav > ul) > li > a{
+    display: block !important;
+    text-align: left !important;
+    padding: 14px 16px 14px 24px !important;   /* << nice indent */
+    color: #0a0a0a !important;
+  }
+
+  /* Phone-friendly hero heading size so it doesn’t look huge on mobile */
+  #hi-im-muhammad-arslan-iqbal-{
+    font-size: clamp(20px, 6vw, 28px) !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* ===== Mobile polish: keep burger, slide menu, move theme toggle ===== */
+@media (max-width: 960px){
+
+  /* 1) STOP burger→X morph & any separate close icon */
+  #site-header .navbar :is(.menu-close,.close,.icon-close,.navbar-close,.nav-close){display:none!important;}
+  /* kill span/pseudo rotations some themes use for the X */
+  #site-header label[for*="nav"] span,
+  #site-header label[for*="nav"] span::before,
+  #site-header label[for*="nav"] span::after,
+  #site-header label[for*="menu"] span,
+  #site-header label[for*="menu"] span::before,
+  #site-header label[for*="menu"] span::after{
+    transform:none!important; top:auto!important; bottom:auto!important;
+  }
+
+  /* 2) THEME toggle pinned right (next to search) – ultra-broad matches */
+  #site-header .navbar :is(button,a)[class*="theme" i],
+  #site-header .navbar :is(button,a)[aria-label*="dark" i],
+  #site-header .navbar :is(button,a)[aria-label*="light" i],
+  #site-header .navbar :is(button,a)[title*="dark" i],
+  #site-header .navbar :is(button,a)[title*="light" i],
+  #site-header .navbar [data-theme-toggle],
+  #site-header .navbar .theme-toggle,
+  #site-header .navbar .theme-switch{
+    position:absolute !important;
+    right:54px !important;                 /* search stays at 14px from your last step */
+    top:50% !important; transform:translateY(-50%) !important;
+    padding:8px !important;
+  }
+
+  /* 3) Make the dropdown animate (some themes toggle display:none) */
+  #site-header nav > ul,
+  #site-header nav .nav-menu,
+  #site-header nav .menu{ display:block !important; }
+
+  /* hidden state (slide up a bit + fade) */
+  #site-header input[type="checkbox"][id*="nav"] ~ ul,
+  #site-header input[type="checkbox"][id*="nav"] ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="nav"] ~ .menu,
+  #site-header input[type="checkbox"][id*="menu"] ~ ul,
+  #site-header input[type="checkbox"][id*="menu"] ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="menu"] ~ .menu{
+    will-change: transform, opacity, max-height;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform .28s ease, opacity .25s ease, max-height .35s ease !important;
+  }
+  /* shown state */
+  #site-header input[type="checkbox"][id*="nav"]:checked ~ ul,
+  #site-header input[type="checkbox"][id*="nav"]:checked ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="nav"]:checked ~ .menu,
+  #site-header input[type="checkbox"][id*="menu"]:checked ~ ul,
+  #site-header input[type="checkbox"][id*="menu"]:checked ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="menu"]:checked ~ .menu{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+/* === Right-side icon group (search + dark mode) ========================= */
+
+/* 1) Find the right-most icon group and make it a tidy row with a small gap */
+#site-header nav .navbar-end,
+#site-header nav .nav-icons,
+#site-header nav .ml-auto,
+#site-header nav > .flex > .ml-auto {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;         /* tighten spacing between the two icons */
+}
+
+/* 2) Neutralize any extra margins individual buttons might add */
+#site-header nav .navbar-end > * ,
+#site-header nav .nav-icons  > * ,
+#site-header nav .ml-auto    > * {
+  margin: 0 !important;
+}
+
+/* 3) Order the two buttons: Search first, Theme (dark-mode) second */
+#site-header nav .js-search,
+#site-header nav [aria-label="Search"],
+#site-header nav button[title*="Search"] {
+  order: 1 !important;
+}
+
+#site-header nav .theme-toggle,
+#site-header nav [aria-label*="Dark"],
+#site-header nav [aria-label*="Theme"],
+#site-header nav button[title*="Dark"] {
+  order: 2 !important;
+}
+
+/* 4) Make the icons the same size and vertically centered */
+#site-header nav .js-search,
+#site-header nav .theme-toggle,
+#site-header nav [aria-label="Search"],
+#site-header nav [aria-label*="Dark"],
+#site-header nav [aria-label*="Theme"] {
+  display: grid !important;
+  place-items: center !important;
+  width: 28px !important;          /* adjust if you want them smaller/larger */
+  height: 28px !important;
+  line-height: 1 !important;
+}
+
+#site-header nav .js-search svg,
+#site-header nav [aria-label="Search"] svg,
+#site-header nav [aria-label*="Dark"] svg,
+#site-header nav [aria-label*="Theme"] svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* If your theme flips their order on mobile via utility classes,
+   pin the correct order on small screens too */
+@media (max-width: 768px) {
+  #site-header nav .js-search,
+  #site-header nav [aria-label="Search"],
+  #site-header nav button[title*="Search"] { order: 1 !important; }
+  #site-header nav .theme-toggle,
+  #site-header nav [aria-label*="Dark"],
+  #site-header nav button[title*="Dark"]   { order: 2 !important; }
+}
+
+
+/* ===== Mobile polish: keep burger, slide menu, move theme toggle ===== */
+@media (max-width: 960px){
+
+  /* 1) STOP burger→X morph & any separate close icon */
+  #site-header .navbar :is(.menu-close,.close,.icon-close,.navbar-close,.nav-close){display:none!important;}
+  /* kill span/pseudo rotations some themes use for the X */
+  #site-header label[for*="nav"] span,
+  #site-header label[for*="nav"] span::before,
+  #site-header label[for*="nav"] span::after,
+  #site-header label[for*="menu"] span,
+  #site-header label[for*="menu"] span::before,
+  #site-header label[for*="menu"] span::after{
+    transform:none!important; top:auto!important; bottom:auto!important;
+  }
+
+  /* 2) THEME toggle pinned right (next to search) – ultra-broad matches */
+  #site-header .navbar :is(button,a)[class*="theme" i],
+  #site-header .navbar :is(button,a)[aria-label*="dark" i],
+  #site-header .navbar :is(button,a)[aria-label*="light" i],
+  #site-header .navbar :is(button,a)[title*="dark" i],
+  #site-header .navbar :is(button,a)[title*="light" i],
+  #site-header .navbar [data-theme-toggle],
+  #site-header .navbar .theme-toggle,
+  #site-header .navbar .theme-switch{
+    position:absolute !important;
+    right:54px !important;                 /* search stays at 14px from your last step */
+    top:50% !important; transform:translateY(-50%) !important;
+    padding:8px !important;
+  }
+
+  /* 3) Make the dropdown animate (some themes toggle display:none) */
+  #site-header nav > ul,
+  #site-header nav .nav-menu,
+  #site-header nav .menu{ display:block !important; }
+
+  /* hidden state (slide up a bit + fade) */
+  #site-header input[type="checkbox"][id*="nav"] ~ ul,
+  #site-header input[type="checkbox"][id*="nav"] ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="nav"] ~ .menu,
+  #site-header input[type="checkbox"][id*="menu"] ~ ul,
+  #site-header input[type="checkbox"][id*="menu"] ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="menu"] ~ .menu{
+    will-change: transform, opacity, max-height;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform .28s ease, opacity .25s ease, max-height .35s ease !important;
+  }
+  /* shown state */
+  #site-header input[type="checkbox"][id*="nav"]:checked ~ ul,
+  #site-header input[type="checkbox"][id*="nav"]:checked ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="nav"]:checked ~ .menu,
+  #site-header input[type="checkbox"][id*="menu"]:checked ~ ul,
+  #site-header input[type="checkbox"][id*="menu"]:checked ~ .nav-menu,
+  #site-header input[type="checkbox"][id*="menu"]:checked ~ .menu{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Keep the burger glyph even when the menu is open */
+@media (max-width: 992px){
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::before,
+  .hamburger.is-active .hamburger-inner::after{
+    transform: none !important;     /* stop the X rotation */
+  }
+  /* Restore the top/bottom bars to their original offsets */
+  .hamburger .hamburger-inner::before{ top: -6px; }
+  .hamburger .hamburger-inner::after { top:  6px; }
+}
+
+/* To keep spacing between search and toggle icons */
+#site-header nav [aria-label="Search"],
+#site-header nav button[aria-label*="ark"],
+#site-header nav .theme-toggle {
+  margin: 0 !important;
+  padding-left: 0.15rem !important;
+  padding-right: 0rem !important;
+}
+
+
+
+
+/* === NAV ICONS: gap + alignment + ordering ============================= */
+
+/* 1) Tunable variables */
+:root{
+  --navicon-gap-desktop: 10px;   /* reduce this to bring icons closer on desktop */
+  --navicon-gap-mobile:  12px;   /* tweak spacing on phones/tablets */
+  --navicon-moon-nudge-desktop: -1px;  /* vertical fine-tune of the moon vs search */
+  --navicon-moon-nudge-mobile:  -1px;  /* often -1px or 0px is enough */
+}
+
+/* The little group that holds Search + Dark-mode. Your theme renders it
+   as a flex row with a Tailwind gap; we override that gap cleanly. */
+#site-header .navbar .flex.items-center.gap-6,
+#site-header .navbar .nav-icons{
+  display: inline-flex !important;
+  gap: var(--navicon-gap-desktop) !important;
+}
+
+/* Make each icon align on the same baseline */
+#site-header .navbar .flex.items-center.gap-6 > a,
+#site-header .navbar .flex.items-center.gap-6 > button,
+#site-header .navbar .nav-icons > a,
+#site-header .navbar .nav-icons > button{
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+/* Nudge the *dark-mode* icon so it sits perfectly level with Search.
+   (We match by label/title/data attribute to be theme-agnostic.) */
+#site-header [aria-label*="Dark"],
+#site-header [aria-label*="dark"],
+#site-header [title*="Dark"],
+#site-header [title*="dark"],
+#site-header [data-theme-toggle]{
+  transform: translateY(var(--navicon-moon-nudge-desktop));
+}
+
+/* --- Mobile tweaks --- */
+@media (max-width: 1024px){
+  #site-header .navbar .flex.items-center.gap-6,
+  #site-header .navbar .nav-icons{
+    gap: var(--navicon-gap-mobile) !important;
+  }
+  #site-header [aria-label*="Dark"],
+  #site-header [aria-label*="dark"],
+  #site-header [title*="Dark"],
+  #site-header [title*="dark"],
+  #site-header [data-theme-toggle]{
+    transform: translateY(var(--navicon-moon-nudge-mobile));
+  }
+
+  /* OPTIONAL: ensure the moon is the *right-most* icon on mobile */
+  #site-header .navbar .flex.items-center.gap-6 > *{ order: 0; }
+  #site-header .navbar .flex.items-center.gap-6 > [aria-label*="Dark"],
+  #site-header .navbar .flex.items-center.gap-6 > [aria-label*="dark"],
+  #site-header .navbar .flex.items-center.gap-6 > [title*="Dark"],
+  #site-header .navbar .flex.items-center.gap-6 > [title*="dark"],
+  #site-header .navbar .flex.items-center.gap-6 > [data-theme-toggle]{
+    order: 2;
+  }
+}
+
+/* === RIGHT ICON CLUSTER (search + theme) ================================== */
+/* Grab the flex group that holds the two buttons on all breakpoints */
+#site-header nav .flex.items-center[class*="ml-auto"],
+#site-header nav .flex.items-center[class*="order-2"]{
+  display: flex !important;
+  flex-direction: row !important;         /* ensure L→R, not reversed        */
+  align-items: center !important;          /* vertical align                  */
+  gap: 10px !important;                    /* space between the two icons     */
+}
+
+/* Put SEARCH first (left) */
+#site-header nav .flex.items-center [data-search-toggle]{
+  order: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+}
+
+/* Put THEME second (right) and align to the same baseline */
+#site-header nav .flex.items-center .theme-toggle{
+  order: 2 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-top: 0 !important;               /* kills Tailwind mt-1 nudge       */
+  transform: translateY(-1px);            /* tiny tweak; try -2px or 0 if needed */
+}
+
+
+
+/* Mobile: slightly tighter spacing if you want */
+@media (max-width: 768px){
+  #site-header nav .flex.items-center[class*="ml-auto"],
+  #site-header nav .flex.items-center[class*="order-2"]{
+    gap: 8px !important;
+  }
+}
+
+
+/* Make both buttons align nicely */
+#site-header [data-search-toggle],
+#site-header .theme-toggle{
+  display:inline-flex;
+  align-items:center;      /* baseline alignment */
+  line-height:1;           /* avoid extra vertical drift */
+}
+
+/* ============ Desktop (≥1024px) ============ */
+/* Nudge the moon icon slightly lower */
+@media (min-width:1024px){
+  #site-header .theme-toggle{ margin-top: 6px !important; }  /* try 4–10px to taste */
+  #site-header .theme-toggle i{ transform: translateY(1px); } /* tiny refinement */
+}
+
+
+/* ===== Force icon sizes/alignments (works regardless of inner <svg>/<i>) ===== */
+
+/* Desktop (all widths): tiny vertical nudge so moon lines up with the search icon */
+#site-header nav .theme-toggle {
+  transform: translateY(1px) !important;   /* adjust ±1–2px if needed */
+  transform-origin: center center !important;
+}
+
+/* Mobile: make toggle bigger and search smaller */
+@media (max-width: 768px) {
+
+  /* Search — slightly smaller */
+  #site-header nav button[data-search-toggle] {
+    transform: scale(0.85) translateY(0px) !important;   /* tweak 0.80–0.95 */
+    transform-origin: center center !important;
+  }
+
+  /* Toggle — a bit larger and perfectly aligned */
+  #site-header nav .theme-toggle {
+    transform: scale(1.20) translateY(0px) !important;   /* tweak 1.10–1.30 */
+    transform-origin: center center !important;
+  }
+}
+
+
+/* Mobile-only: make the SEARCH icon smaller */
+@media (max-width: 991.98px){
+  /* the button itself (yours has data-search-toggle) */
+  #site-header nav [data-search-toggle]{
+    font-size: 1.00rem !important;   /* was text-xl; smaller = smaller icon */
+    line-height: 1 !important;
+  }
+  /* if the theme uses an inline SVG for the magnifier, cap it too */
+  #site-header nav [data-search-toggle] svg{
+    width: 14px !important;
+    height: 14px !important;
   }
 }
 
@@ -299,6 +990,96 @@ h1{ font-size: clamp(28px, 3.2vw, 38px); line-height: 1.2; margin: 1.25rem 0; }
 
 
 
+/* === NAV RIGHT ICONS: SEARCH + THEME TOGGLE ===================== */
+/* Make the container of the right icons align right and set a tidy gap */
+#site-header nav .order-1 {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 2px !important;                   /* space between search & toggle */
+}
+
+/* Touch target + baseline alignment */
+#site-header nav .order-1 [data-search-toggle],
+#site-header nav .order-1 .theme-toggle {
+  inline-size: 40px;                      /* 40x40 tap target */
+  block-size: 40px;
+  display: inline-grid;
+  place-items: center;
+  transform: translateY(0px);             /* tiny vertical nudge so baselines match */
+}
+
+/* Control icon sizes (do NOT change display => keeps sun/moon toggle working) */
+#site-header nav .order-1 [data-search-toggle] svg { width: 18px; height: 18px; }
+#site-header nav .order-1 .theme-toggle       svg { width: 22px; height: 22px; }
+
+
+/* ===== Right-side header icons: spacing, size & alignment ===== */
+/* Base: make both buttons a fixed square and vertically aligned */
+#site-header [data-search-toggle],
+#site-header .theme-toggle{
+  width: 34px;
+  height: 34px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  border: 0;
+}
+
+/* The theme adds mt-1 to the toggle; remove it so it lines up with the search */
+#site-header .theme-toggle{ margin-top: 0 !important; }
+
+/* Scale any injected SVGs to the button box */
+#site-header [data-search-toggle] svg,
+#site-header .theme-toggle svg{
+  width: 1 rem;
+  height: 1 rem;
+}
+
+/* Desktop/laptop: bring the two icons closer together */
+@media (min-width: 1024px){
+  #site-header nav .ml-auto.items-center,
+  #site-header nav .ml-auto.flex.items-center{
+    gap: 0px !important; /* smaller space between moon & search */
+  }
+}
+
+/* Mobile: smaller magnifier, slightly larger moon & right-align inside their boxes */
+@media (max-width: 768px){
+  /* keep the two buttons close on mobile too */
+  #site-header nav .ml-auto.items-center,
+  #site-header nav .ml-auto.flex.items-center{
+    gap: 0px !important;
+  }
+
+  /* size tweaks */
+  #site-header [data-search-toggle] svg{ width: 1.00rem; height: 1.00rem; } /* smaller */
+  #site-header .theme-toggle svg{     width: 1.50rem; height: 1.50rem; } /* bigger */
+
+  /* push the icons toward the right edge of their boxes */
+  #site-header [data-search-toggle]{ justify-content: flex-left; padding-right: 0px; }
+  #site-header .theme-toggle{        justify-content: flex-end; padding-right: 0px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #site-header nav button[data-search-toggle]{ outline:2px solid hotpink !important; } */
+/* #site-header nav .theme-toggle{ outline:2px dashed cyan !important; } */
 
 
 
