@@ -326,19 +326,6 @@ button.search-close[aria-label="search"] svg{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =========================
    MOBILE NAV LAYOUT (<= 960)
    ========================= */
@@ -984,12 +971,6 @@ html.dark #search, html.dark .search-modal { background:#fff !important; }
 }
 
 
-
-
-
-
-
-
 /* === NAV RIGHT ICONS: SEARCH + THEME TOGGLE ===================== */
 /* Make the container of the right icons align right and set a tidy gap */
 #site-header nav .order-1 {
@@ -1063,7 +1044,26 @@ html.dark #search, html.dark .search-modal { background:#fff !important; }
 }
 
 
+/* HERO / LANDING — force full-viewport background and cover */
+#section-resume-biography-3 {
+  position: relative;
+  min-height: 100vh;            /* at least 1 full screen */
+}
 
+#section-resume-biography-3 > .home-section-bg.bg-image {
+  position: absolute;
+  inset: 0;                     /* top:0 right:0 bottom:0 left:0 */
+  z-index: 0;
+  background-image: url("/media/stacked-peaks.svg"); /* your image */
+  background-repeat: no-repeat;
+  background-size: cover;       /* fill, crop if necessary */
+  background-position: center;  /* keep centered */
+  /* remove any theme overlay if it exists */
+}
+#section-resume-biography-3 > *:not(.home-section-bg) {
+  position: relative;
+  z-index: 1;                   /* content above the image */
+}
 
 
 
