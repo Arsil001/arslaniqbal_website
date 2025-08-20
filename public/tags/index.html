@@ -37,7 +37,44 @@
     #scrollTitle.show{ opacity:1; transform:scale(1); }
     #brandLeft{ transition:opacity .25s ease, transform .25s ease; }
     #brandLeft.dim{ opacity:0; transform:translateY(-4px); pointer-events:none; }
-    </style>
+    
+     
+    .dropdown-menu{background:#fff;border:1px solid rgba(0,0,0,.05);border-radius:.5rem;box-shadow:0 6px 20px rgba(0,0,0,.08);white-space:nowrap;width:-moz-fit-content;width:fit-content}
+    .dropdown-menu a{padding:.5rem 1.25rem!important;color:#111827}
+    .dropdown-menu a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px;color:#000}
+    
+ 
+.dropdown-menu{width:max-content;white-space:nowrap;padding:0;background:#fff;border:1px solid rgba(0,0,0,.06);
+  border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.10)}
+.dropdown-menu a{display:block;padding:10px 20px;color:#111827;background:none}
+.dropdown-menu a:hover{background-color:transparent !important;text-decoration:none !important;color:#000}
+ 
+.dropdown-menu a .menu-underline{
+  display:inline-block;
+  background-image:linear-gradient(#000,#000);
+  background-position:0 100%;
+  background-repeat:no-repeat;
+  background-size:0 2px;
+  transition:background-size .2s ease;
+}
+.dropdown-menu a:hover .menu-underline{ background-size:100% 2px; }
+
+
+ 
+header .dropdown-menu{
+  width: max-content !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+ 
+header .dropdown-menu a{
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+</style>
 </head>
 <body class="bg-white">
   
@@ -55,15 +92,15 @@
     <nav class="mt-8 hidden md:flex justify-center space-x-8 pointer-events-auto">
       <div class="relative dropdown">
         <button class="nav-underline flex items-center text-white/90 hover:text-white"><span>Bio</span><i class="icon-chevron-down ml-1 text-xs"></i></button>
-        <div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Interests</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Education</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Experience</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Skills</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Hobbies</a></div>
+        <div class="dropdown-menu p-0"><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Interests</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Education</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Experience</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Skills</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Hobbies</span></a></div>
       </div>
       <div class="relative dropdown">
         <button class="nav-underline flex items-center text-white/90 hover:text-white"><span>Recet</span><i class="icon-chevron-down ml-1 text-xs"></i></button>
-        <div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Recent News</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">From the Blog</a></div>
+        <div class="dropdown-menu p-0"><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Recent News</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">From the Blog</span></a></div>
       </div>
       <a href="#" class="nav-underline text-white/90 hover:text-white">Research</a>
       <a href="#" class="nav-underline text-white/90 hover:text-white">Teaching</a>
-      <a href="#" class="nav-underline text-white/90 hover:text-white">Blog</a>
+      <div class="relative dropdown"><button class="nav-underline flex items-center text-white hover:text-white"><span>Blog</span><i class="icon-chevron-down ml-1 text-xs"></i></button><div class="dropdown-menu p-0"><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Econ</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Learning</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Reviews</span></a></div></div>
       <a href="#" class="nav-underline text-white/90 hover:text-white">Contact</a>
     </nav>
   </div>
@@ -78,15 +115,15 @@
       <nav class="hidden lg:flex items-center space-x-8">
         <div class="relative dropdown">
           <button class="nav-underline flex items-center text-gray-800"><span>Bio</span><i class="icon-chevron-down ml-1 text-xs"></i></button>
-          <div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Interests</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Education</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Experience</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Skills</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Hobbies</a></div>
+          <div class="dropdown-menu p-0"><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Interests</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Education</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Experience</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Skills</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Hobbies</span></a></div>
         </div>
         <div class="relative dropdown">
           <button class="nav-underline flex items-center text-gray-800"><span>Recet</span><i class="icon-chevron-down ml-1 text-xs"></i></button>
-          <div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Recent News</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">From the Blog</a></div>
+          <div class="dropdown-menu p-0"><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Recent News</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">From the Blog</span></a></div>
         </div>
         <a href="#" class="nav-underline text-gray-800">Research</a>
         <a href="#" class="nav-underline text-gray-800">Teaching</a>
-        <div class="relative dropdown"><button class="nav-underline flex items-center text-gray-800"><span>Blog</span><i class="icon-chevron-down ml-1 text-xs"></i></button><div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Category1</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Category2</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Category3</a></div></div>
+        <div class="relative dropdown"><button class="nav-underline flex items-center text-gray-800"><span>Blog</span><i class="icon-chevron-down ml-1 text-xs"></i></button><div class="dropdown-menu p-0"><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Category1</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Category2</span></a><a href="#" class="block px-5 py-2 text-sm text-gray-900 hover:"><span class="menu-underline">Category3</span></a></div></div>
         <a href="#" class="nav-underline text-gray-800">Contact</a>
       </nav>
       <div class="flex items-center space-x-5">
@@ -115,18 +152,18 @@
           <summary class="flex items-center justify-between w-full text-left font-medium cursor-pointer">
             <span>Bio</span><i class="icon-chevron-down text-sm transition-transform group-open:rotate-180"></i>
           </summary>
-          <div class="mt-2 ml-4 space-y-2"><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">All Prints</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Automobile</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Black &amp; White</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Books</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Film</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Nature</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">People</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Travel</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Water</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Apparel</a></div>
+          <div class="mt-2 ml-4 space-y-2"><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">All Prints</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Automobile</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Black &amp; White</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Books</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Film</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Nature</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">People</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Travel</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Water</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Apparel</a></div>
         </details>
         <details class="group">
           <summary class="flex items-center justify-between w-full text-left font-medium cursor-pointer">
             <span>Recet</span><i class="icon-chevron-down text-sm transition-transform group-open:rotate-180"></i>
           </summary>
-          <div class="mt-2 ml-4 space-y-2"><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Anna Landstedt</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Cal Foster</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Caley Vanular</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Clare Plueckhahn</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">David Zammit</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Iman Perdana</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Jonas Bresnan</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Josh Soskin</a></div>
+          <div class="mt-2 ml-4 space-y-2"><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Anna Landstedt</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Cal Foster</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Caley Vanular</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Clare Plueckhahn</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">David Zammit</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Iman Perdana</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Jonas Bresnan</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900 py-2 hover:underline hover:decoration-2 hover:decoration-black">Josh Soskin</a></div>
         </details>
-        <a href="#" class="block font-medium">Research</a>
-        <a href="#" class="block font-medium">Teaching</a>
-        <a href="#" class="block font-medium">Blog</a>
-        <a href="#" class="block font-medium">Contact</a>
+        <a href="#" class="block font-medium py-2 text-sm text-gray-900 hover:underline hover:decoration-2 hover:decoration-black">Research</a>
+        <a href="#" class="block font-medium py-2 text-sm text-gray-900 hover:underline hover:decoration-2 hover:decoration-black">Teaching</a>
+        <a href="#" class="block font-medium py-2 text-sm text-gray-900 hover:underline hover:decoration-2 hover:decoration-black">Blog</a>
+        <a href="#" class="block font-medium py-2 text-sm text-gray-900 hover:underline hover:decoration-2 hover:decoration-black">Contact</a>
       </div>
     </div>
   </div>

@@ -37,7 +37,44 @@
     #scrollTitle.show{ opacity:1; transform:scale(1); }
     #brandLeft{ transition:opacity .25s ease, transform .25s ease; }
     #brandLeft.dim{ opacity:0; transform:translateY(-4px); pointer-events:none; }
-    </style>
+    
+    /* Dropdown style normalization */
+    .dropdown-menu{background:#fff;border:1px solid rgba(0,0,0,.05);border-radius:.5rem;box-shadow:0 6px 20px rgba(0,0,0,.08);white-space:nowrap;width:-moz-fit-content;width:fit-content}
+    .dropdown-menu a{padding:.5rem 1.25rem!important;color:#111827}
+    .dropdown-menu a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px;color:#000}
+    
+/* === Submenu underline matches main nav (text-only, animated) === */
+.dropdown-menu{width:max-content;white-space:nowrap;padding:0;background:#fff;border:1px solid rgba(0,0,0,.06);
+  border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.10)}
+.dropdown-menu a{display:block;padding:10px 20px;color:#111827;background:none}
+.dropdown-menu a:hover{background-color:transparent !important;text-decoration:none !important;color:#000}
+/* underline on inner span so the line fits text width, not full item width */
+.dropdown-menu a .menu-underline{
+  display:inline-block;
+  background-image:linear-gradient(#000,#000);
+  background-position:0 100%;
+  background-repeat:no-repeat;
+  background-size:0 2px;
+  transition:background-size .2s ease;
+}
+.dropdown-menu a:hover .menu-underline{ background-size:100% 2px; }
+
+
+/* High-specificity width enforcement for dropdowns */
+header .dropdown-menu{
+  width: max-content !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+/* Equal side margins via link padding; keep animated underline span in place */
+header .dropdown-menu a{
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+</style>
 </head>
 <body class="bg-white">
   {{ partial "header.html" . }}
