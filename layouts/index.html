@@ -1,0 +1,58 @@
+{{ define "main" }}
+<section id="hero" class="relative min-h-[100svh] md:min-h-screen overflow-hidden">
+  <div class="absolute inset-0">
+    <img id="hero-image" src="/images/hero.jpg" alt="Fine Art Photography" class="w-full h-full object-cover parallax-bg"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
+  </div>
+  <div class="relative z-10 flex items-center min-h-[100svh] md:min-h-screen px-4 pt-12 md:pt-20">
+    <div class="max-w-6xl mx-auto w-full">
+      <div class="flex flex-col md:flex-row items-center gap-[4.68rem]">
+        <div class="shrink-0">
+          <img src="/images/avatar.jpg" alt="Avatar" class="w-52 h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full ring-4 ring-white/70 object-cover object-[50%_20%]">
+<div class="mt-6 text-center text-white">
+            <h2 class="text-2xl font-extrabold tracking-wide">ARSLAN IQBAL</h2>
+            <p class=" mt-[0.3rem] text-base font-semibold opacity-90">PhD Economics Candidate</p>
+            <p class="mt-[0.15rem] text-sm text-white/70">The University of Melbourne</p>
+            <div class="mt-[1.2rem] flex items-center justify-center gap-2">
+              <a href="#" class="w-9 h-9 rounded-full bg-white text-gray-900 flex items-center justify-center shadow hover:scale-105 transition">@</a>
+              <a href="#" class="w-9 h-9 rounded-full bg-white text-gray-900 flex items-center justify-center shadow hover:scale-105 transition">🌸</a>
+              <a href="#" class="w-9 h-9 rounded-full bg-white text-gray-900 flex items-center justify-center shadow hover:scale-105 transition">X</a>
+              <a href="#" class="w-9 h-9 rounded-full bg-white text-gray-900 flex items-center justify-center shadow hover:scale-105 transition">in</a>
+              <a href="#" class="w-9 h-9 rounded-full bg-white text-gray-900 flex items-center justify-center shadow hover:scale-105 transition">iD</a>
+            </div>
+          
+
+        </div>
+        </div>
+        <div class="text-center md:text-left text-white max-w-3xl">
+          <p class="uppercase tracking-[.25em] text-xl md:text-2xl  mb-[2.8rem] reveal delay-1">Hi, I’m Muhammad Arslan Iqbal <span class="ml-1">👋</span></p>
+          <h1 class="phd-line text-xl md:text-3xl lg:text-4xl font-light  tracking-wider reveal delay-2   mb-[2.8rem]">PhD Economics candidate focusing on behavioral &amp; experimental economics.</h1>
+          <p class=" text-xl  md:text-2xl lg:text-xl font-light  mb-6 leading-relaxed reveal delay-3">I’m a PhD Economics candidate at the University of Melbourne. I study behavioral and experimental economics with a focus on leadership under weak institutional frameworks for accountability. I design lab experiments to test mechanisms that encourage responsible leadership and welfare-optimizing reforms.</p>
+          <div class="flex flex-col sm:flex-row gap-4 md:justify-start justify-center  mt-[3.2rem]">
+            <a href="#" class="bg-white text-black px-8 py-3 font-medium hover:bg-gray-100 hover:scale-105 transition-all duration-300 shadow-lg">Download CV</a>
+            <a href="#" class="border-2 border-white text-white px-8 py-3 font-medium hover:bg-white hover:text-black hover:scale-105 transition-all duration-300">View CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white">
+    <div class="flex flex-col items-center animate-pulse">
+      <span class="text-sm mb-2 opacity-80">Scroll to explore</span>
+      <i class="icon-chevron-down text-xl animate-bounce"></i>
+    </div>
+  </div>
+</section>
+<section id="featured" class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 fade-in-up animate">
+      <h2 class="text-4xl font-light mb-4">Featured Collections</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">Discover our curated selection of fine art photography from talented artists around the world</p>
+    </div>
+    <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    <div class="text-center mt-12">
+      <a href="#" class="bg-black text-white px-8 py-3 font-medium hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300">View All Collections</a>
+    </div>
+  </div>
+</section>
+{{ end }}

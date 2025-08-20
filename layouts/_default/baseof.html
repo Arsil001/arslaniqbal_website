@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{{ .Site.Title }}</title>
+  <meta name="description" content="Almost Real is a source of fine art photography and visual arts by a collective of global artists and creatives.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer base { body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; } }
+    @layer components {
+      .nav-underline { @apply relative text-sm font-medium tracking-wide; }
+      .nav-underline::after { content:""; position:absolute; left:50%; bottom:-6px; height:2px; width:0; background-color:currentColor; transform:translateX(-50%); transition:width .25s ease; }
+      .nav-underline:hover::after { width:100%; }
+      .fade-in-up { opacity:0; transform:translateY(24px); transition:all .8s ease-out; }
+      .fade-in-up.animate { opacity:1; transform:translateY(0); }
+      .parallax-bg { will-change: transform; transition: transform .1s ease-out; }
+      #header-bar { @apply fixed top-0 left-0 right-0 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm z-50 hidden; }
+      body.scrolled #header-bar { @apply block; }
+      #header-overlay { @apply fixed top-0 left-0 right-0 z-40 text-white; }
+      body.scrolled #header-overlay { @apply hidden; }
+      .dropdown-menu { @apply absolute top-full left-1/2 -translate-x-1/2 bg-white text-black shadow-lg border border-gray-100 py-2 min-w-56 opacity-0 invisible transition-all duration-300 transform translate-y-2; }
+      .dropdown:hover .dropdown-menu { @apply opacity-100 visible translate-y-0; }
+      @keyframes fadeSlideUp { 0% { opacity:0; transform:translateY(18px);} 100% { opacity:1; transform:translateY(0);} }
+      .reveal { opacity:0; animation: fadeSlideUp .8s ease-out forwards; }
+      .reveal.delay-1 { animation-delay:.1s; }
+      .reveal.delay-2 { animation-delay:.35s; }
+      .reveal.delay-3 { animation-delay:.7s; }
+    }
+  
+    /* Centered sticky title reveal */
+    #scrollTitle{ opacity:0; transform:scale(.95); transform-origin:50% 50%; }
+    #scrollTitle.show{ opacity:1; transform:scale(1); }
+    #brandLeft{ transition:opacity .25s ease, transform .25s ease; }
+    #brandLeft.dim{ opacity:0; transform:translateY(-4px); pointer-events:none; }
+    </style>
+</head>
+<body class="bg-white">
+  {{ partial "header.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  <script src="/js/main.js"></script>
+</body>
+</html>

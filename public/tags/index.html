@@ -1,1138 +1,204 @@
-<!doctype html>
-<!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: August 12, 2025 --><html lang="en-us" dir="ltr"
-      data-wc-theme-default="system">
-  
+<!DOCTYPE html>
+<html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="generator" content="Hugo Blox Builder 0.3.2" />
-
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Almost Real — Fine Art Photography</title>
+  <meta name="description" content="Almost Real is a source of fine art photography and visual arts by a collective of global artists and creatives.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    @layer base { body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; } }
+    @layer components {
+      .nav-underline { @apply relative text-sm font-medium tracking-wide; }
+      .nav-underline::after { content:""; position:absolute; left:50%; bottom:-6px; height:2px; width:0; background-color:currentColor; transform:translateX(-50%); transition:width .25s ease; }
+      .nav-underline:hover::after { width:100%; }
+      .fade-in-up { opacity:0; transform:translateY(24px); transition:all .8s ease-out; }
+      .fade-in-up.animate { opacity:1; transform:translateY(0); }
+      .parallax-bg { will-change: transform; transition: transform .1s ease-out; }
+      #header-bar { @apply fixed top-0 left-0 right-0 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm z-50 hidden; }
+      body.scrolled #header-bar { @apply block; }
+      #header-overlay { @apply fixed top-0 left-0 right-0 z-40 text-white; }
+      body.scrolled #header-overlay { @apply hidden; }
+      .dropdown-menu { @apply absolute top-full left-1/2 -translate-x-1/2 bg-white text-black shadow-lg border border-gray-100 py-2 min-w-56 opacity-0 invisible transition-all duration-300 transform translate-y-2; }
+      .dropdown:hover .dropdown-menu { @apply opacity-100 visible translate-y-0; }
+      @keyframes fadeSlideUp { 0% { opacity:0; transform:translateY(18px);} 100% { opacity:1; transform:translateY(0);} }
+      .reveal { opacity:0; animation: fadeSlideUp .8s ease-out forwards; }
+      .reveal.delay-1 { animation-delay:.1s; }
+      .reveal.delay-2 { animation-delay:.35s; }
+      .reveal.delay-3 { animation-delay:.7s; }
+    }
   
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-    
-    
-    
-  
-  
-
-  <meta name="author" content="Arslan Iqbal" />
-
-  
-  
-  
-    
-  
-  <meta name="description" content="The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website." />
-
-  
-  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/tags/" />
-
-  
-  
-  
-  
-    
-    <link rel="stylesheet" href="/css/themes/emerald.min.css" />
-  
-
-  
-  
-    
-    <link href="/dist/wc.min.05570f1deda629d4e2d77f73534a63aa04471f012db6735c59424372f467db85.css" rel="stylesheet" />
-  
-
-  
-  
-  
-
-  
-    
-    <link href="/css/custom.min.ebd9ed550bfa994c0eddbe4774d43c19aec73dfdebce81edac712aa6a8681598.css" rel="stylesheet" />
-  
-
-  <script>
      
-    window.hbb = {
-       defaultTheme: document.documentElement.dataset.wcThemeDefault,
-       setDarkTheme: () => {
-        document.documentElement.classList.add("dark");
-        document.documentElement.style.colorScheme = "dark";
-      },
-       setLightTheme: () => {
-        document.documentElement.classList.remove("dark");
-        document.documentElement.style.colorScheme = "light";
-      }
-    }
-
-    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
-
-    if ("wc-color-theme" in localStorage) {
-      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
-    } else {
-      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
-      if (window.hbb.defaultTheme === "system") {
-        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
-      }
-    }
-  </script>
-
-  <script>
-    
-    document.addEventListener('DOMContentLoaded', function () {
-      
-      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
-      checkboxes.forEach(e => {
-        e.parentElement.parentElement.classList.add('task-list');
-      });
-
-      
-      const liNodes = document.querySelectorAll('.task-list li');
-      liNodes.forEach(nodes => {
-        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
-        if (textNodes.length > 0) {
-          const span = document.createElement('label');
-          textNodes[0].after(span);  
-          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
-          span.appendChild(textNodes[0]);
-        }
-      });
-    });
-  </script>
-
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <link rel="alternate" href="/tags/index.xml" type="application/rss+xml" title="Arslan Iqbal" />
-  
-
-  
-  <link rel="icon" type="image/png" href="/media/icon_hu2922661602004997336.png" />
-  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu15229432519659543017.png" />
-
-  <link rel="canonical" href="http://localhost:1313/tags/" />
-
-  
-  
-  
-  
-  
-  
-  
-  
-    
-    
-  
-  
-
-  
-  
-    
-    
-  
-  <meta property="twitter:card" content="summary" />
-  
-    <meta property="twitter:site" content="@GetResearchDev" />
-    <meta property="twitter:creator" content="@GetResearchDev" />
-  
-  <meta property="og:site_name" content="Arslan Iqbal" />
-  <meta property="og:url" content="http://localhost:1313/tags/" />
-  <meta property="og:title" content="Tags | Arslan Iqbal" />
-  <meta property="og:description" content="The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website." /><meta property="og:image" content="http://localhost:1313/media/icon_hu10864126121303984249.png" />
-    <meta property="twitter:image" content="http://localhost:1313/media/icon_hu10864126121303984249.png" /><meta property="og:locale" content="en-us" />
-  
-    
-      <meta property="og:updated_time" content="2025-07-01T00:00:00&#43;00:00" />
-    
-  
-
-  
-
-
-
-
-  <title>Tags | Arslan Iqbal</title>
-
-  
-  
-  
-  
-  
-    
-    
-  
-  
-  <style>
-    @font-face {
-      font-family: 'Inter var';
-      font-style: normal;
-      font-weight: 100 900;
-      font-display: swap;
-      src: url(/dist/font/Inter.var.woff2) format(woff2);
-    }
-  </style>
-
-  
-
-  
-  
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-  
-  
-  
-  
-  
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-      
-      
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-<link type="text/css" rel="stylesheet" href="/dist/pagefind/pagefind-ui.be766eb419317a14ec769d216e9779bfe8f3737c80e780f4ba0dafb57a41a482.css" integrity="sha256-vnZutBkxehTsdp0hbpd5v&#43;jzc3yA54D0ug2vtXpBpII=" />
-
-
-<script src="/dist/pagefind/pagefind-ui.87693d7c6f2b3b347ce359d0ede762c033419f0a32b22ce508c335a81d841f1b.js" integrity="sha256-h2k9fG8rOzR841nQ7ediwDNBnwoysizlCMM1qB2EHxs="></script>
-
-
-<script>window.hbb.pagefind = {"baseUrl":"/"};</script>
-
-<style>
-  html.dark {
-    --pagefind-ui-primary: #eeeeee;
-    --pagefind-ui-text: #eeeeee;
-    --pagefind-ui-background: #152028;
-    --pagefind-ui-border: #152028;
-    --pagefind-ui-tag: #152028;
-  }
-
-   
-  .search-close > svg {
-    height: calc(64px * var(--pagefind-ui-scale));
-    width: calc(64px * var(--pagefind-ui-scale));
-  }
-</style>
-
-<script>
-  
-  let searchWrapper = null;
-
-  window.addEventListener('DOMContentLoaded', (event) => {
-    
-    new PagefindUI({
-      element: "#search",
-      showSubResults: true,
-      baseUrl: window.hbb.pagefind.baseUrl,
-      bundlePath: window.hbb.pagefind.baseUrl + "pagefind/",
-    });
-
-    
-    searchWrapper = document.getElementById('search-wrapper');
-
-    
-    let triggers = document.querySelectorAll('[data-search-toggle]');
-    triggers.forEach(trigger =>
-      trigger.addEventListener('click', handleSearchToggle)
-    );
-  });
-
-  function handleSearchToggle(event) {
-    if (!searchWrapper) return;
-
-    const isHidden = searchWrapper.classList.contains('hidden');
-    searchWrapper.classList.toggle('hidden');
-    document.body.style.overflow = isHidden ? 'hidden' : '';
-
-    const searchInput = searchWrapper.querySelector("input");
-    if (searchInput) {
-      searchInput.value = "";
-      searchInput.focus();
-    }
-
-    if (!searchWrapper.classList.contains('hidden')) {
-      let clearTrigger = document.querySelector('.pagefind-ui__search-clear');
-
-      if (clearTrigger && !clearTrigger.hasAttribute('listenerOnClick')) {
-        clearTrigger.setAttribute('listenerOnClick', 'true');
-
-        clearTrigger.addEventListener('click', () => {
-          searchInput.focus();
-        });
-      }
-    }
-  }
-
-  
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && searchWrapper && !searchWrapper.classList.contains('hidden')) {
-      searchWrapper.classList.add('hidden');
-    }
-  });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  <script
-    defer
-    src="/js/hugo-blox-en.min.js"
-    integrity=""
-  ></script>
-
-  
-  
-
-
-
-
-
-
-
-
-  
-    
-      
-      
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-      
-    
-  
-    
-      
-      <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-      
-    
-  
-
-
-
-
+    #scrollTitle{ opacity:0; transform:scale(.95); transform-origin:50% 50%; }
+    #scrollTitle.show{ opacity:1; transform:scale(1); }
+    #brandLeft{ transition:opacity .25s ease, transform .25s ease; }
+    #brandLeft.dim{ opacity:0; transform:translateY(-4px); pointer-events:none; }
+    </style>
 </head>
-
-  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
-    <div id="page-bg"></div>
-    <div class="page-header sticky top-0 z-30">
-      
-      
-      
-        
-        
-        
-          <header id="site-header" class="header">
-  <nav class="navbar px-3 flex justify-left">
-    <div class="order-0 h-100">
-      
-      <a class="navbar-brand" href="/" title="Arslan Iqbal">
-        Arslan Iqbal
-      </a>
-    </div>
-    
-    <input id="nav-toggle" type="checkbox" class="hidden" />
-    <label
-      for="nav-toggle"
-      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
-      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
-        <title>Open Menu</title>
-        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-      </svg>
-      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
-        <title>Close Menu</title>
-        <polygon
-          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
-      </svg>
-    </label>
-    
-
-    
-    
-    <ul
-      id="nav-menu"
-      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-left
-      ">
-      
-      
-      
-      
-      
-      
-      <li class="nav-item">
-        <a
-          class="nav-link "
-          
-          href="/"
-        >Bio</a
-        >
-      </li>
-      
-      
-      
-      
-      
-      
-      <li class="nav-item">
-        <a
-          class="nav-link "
-          
-          href="/#blog"
-        >Blog</a
-        >
-      </li>
-      
-      
-      
-      
-      
-      
-      <li class="nav-item">
-        <a
-          class="nav-link "
-          
-          href="/experience/"
-        >Experience</a
-        >
-      </li>
-      
-      
-      
-      
-      
-      
-      <li class="nav-item">
-        <a
-          class="nav-link "
-          
-          href="/projects/"
-        >Projects</a
-        >
-      </li>
-      
-      
-      
-      
-      
-      
-      <li class="nav-item">
-        <a
-          class="nav-link "
-          
-          href="/publication/"
-        >Publications</a
-        >
-      </li>
-      
-      
-      
-    </ul>
-
-    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
-
-      
-      
-      
-      <button
-        aria-label="toggle search"
-        class="text-black hover:text-primary  inline-block px-3 text-xl dark:text-white"
-        data-search-toggle>
-        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
-      </button>
-      
-
-      
-      
-      <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
-            [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
-        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
-          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-               stroke-linejoin="round" class="dark:hidden">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-               stroke-linejoin="round" class=" dark:block [&:not(dark)]:hidden">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-        </button>
+<body class="bg-white">
+  
+<header id="header-overlay" class="pointer-events-none">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-[1.815rem]">
+    <div class="flex justify-center items-center relative pointer-events-auto">
+      <a id="brandLeft" href="/" class="uppercase tracking-[0.35em] text-xl md:text-2xl font-semibold">ARSLAN IQBAL</a>
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 hidden md:flex items-center space-x-5">
+        <a href="#" class="text-white/95 hover:text-white"><i class="icon-user text-[26px]"></i></a>
+        <a href="#" class="text-white/95 hover:text-white"><i class="icon-search text-[26px]"></i></a>
+        <button id="theme-toggle" class="text-white/95 hover:text-white" aria-label="Toggle theme"><i id="icon-moon" class="icon-moon text-[26px]"></i><i id="icon-sun" class="icon-sun text-[26px] hidden"></i></button>
       </div>
-      
-
-      
-      
-
-      
-      
+      <button id="menu-open" class="md:hidden absolute right-0 text-white/95 hover:text-white"><i class="icon-menu text-2xl"></i></button>
     </div>
-  </nav>
+    <nav class="mt-8 hidden md:flex justify-center space-x-8 pointer-events-auto">
+      <div class="relative dropdown">
+        <button class="nav-underline flex items-center text-white/90 hover:text-white"><span>Bio</span><i class="icon-chevron-down ml-1 text-xs"></i></button>
+        <div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Interests</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Education</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Experience</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Skills</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Hobbies</a></div>
+      </div>
+      <div class="relative dropdown">
+        <button class="nav-underline flex items-center text-white/90 hover:text-white"><span>Recet</span><i class="icon-chevron-down ml-1 text-xs"></i></button>
+        <div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Recent News</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">From the Blog</a></div>
+      </div>
+      <a href="#" class="nav-underline text-white/90 hover:text-white">Research</a>
+      <a href="#" class="nav-underline text-white/90 hover:text-white">Teaching</a>
+      <a href="#" class="nav-underline text-white/90 hover:text-white">Blog</a>
+      <a href="#" class="nav-underline text-white/90 hover:text-white">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<div
-  id="search-wrapper"
-  class="hidden fixed inset-0 z-50 bg-white dark:bg-gray-900 flex flex-col overflow-hidden"
->
-  <div class="flex justify-end p-3">
-    <button
-      aria-label="search"
-      class="search-close text-black hover:text-primary dark:text-white"
-      data-search-toggle
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
 
-  <div id="search" class="flex-1 overflow-y-auto p-3">
-    
-  </div>
-</div>
-
-
-        
-      
+<header id="header-bar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <span id="scrollTitle" class="hidden pointer-events-none absolute left-1/2 -translate-x-1/2 opacity-0 -translate-y-1 transition-all duration-300 tracking-[0.3em] text-xs md:text-sm font-semibold text-gray-900">ARSLAN IQBAL</span>
+      <div class="flex items-center justify-between h-16">
+      <a id="brandLeft" href="/" class="uppercase tracking-[0.3em] text-xs md:text-sm font-semibold text-gray-900">ARSLAN IQBAL</a>
+      <nav class="hidden lg:flex items-center space-x-8">
+        <div class="relative dropdown">
+          <button class="nav-underline flex items-center text-gray-800"><span>Bio</span><i class="icon-chevron-down ml-1 text-xs"></i></button>
+          <div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Interests</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Education</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Experience</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Skills</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Hobbies</a></div>
+        </div>
+        <div class="relative dropdown">
+          <button class="nav-underline flex items-center text-gray-800"><span>Recet</span><i class="icon-chevron-down ml-1 text-xs"></i></button>
+          <div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Recent News</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">From the Blog</a></div>
+        </div>
+        <a href="#" class="nav-underline text-gray-800">Research</a>
+        <a href="#" class="nav-underline text-gray-800">Teaching</a>
+        <div class="relative dropdown"><button class="nav-underline flex items-center text-gray-800"><span>Blog</span><i class="icon-chevron-down ml-1 text-xs"></i></button><div class="dropdown-menu"><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Category1</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Category2</a><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Category3</a></div></div>
+        <a href="#" class="nav-underline text-gray-800">Contact</a>
+      </nav>
+      <div class="flex items-center space-x-5">
+        <a href="#" class="text-gray-700 hover:text-black"><i class="icon-user text-[26px]"></i></a>
+        <a href="#" class="text-gray-700 hover:text-black"><i class="icon-search text-[26px]"></i></a>
+        <button id="theme-toggle-2" class="text-gray-700 hover:text-black" aria-label="Toggle theme"><i id="icon-moon-2" class="icon-moon text-[26px]"></i><i id="icon-sun-2" class="icon-sun text-[26px] hidden"></i></button>
+        <button id="menu-open-bar" class="lg:hidden text-gray-700 hover:text-black"><i class="icon-menu text-2xl"></i></button>
+      </div>
     </div>
-    <div class="page-body  my-10">
-      
-
-<div class="max-w-prose mx-auto flex justify-left">
-  <article class="prose prose-slate lg:prose-xl dark:prose-invert max-w-none">
-    <h1 class="lg:text-6xl !mb-4">Tags</h1>
-    
-  </article>
-</div>
-
-<div class="max-w-prose mx-auto my-5">
-
-  <div class="flex flex-row gap-6 flex-wrap">
-
-        <a href="/tags/academic/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Academic
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/animation/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          animation
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/cv/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          CV
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/geospatial/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          geospatial
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/gis/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          gis
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/hugo/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Hugo
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            6
-          </span>
-        </a>
-
-        <a href="/tags/hugo-blox/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Hugo Blox
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            3
-          </span>
-        </a>
-
-        <a href="/tags/hugo-blox-builder/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Hugo Blox Builder
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            2
-          </span>
-        </a>
-
-        <a href="/tags/javascript/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          JavaScript
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/large-language-models/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Large Language Models
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            2
-          </span>
-        </a>
-
-        <a href="/tags/machinelearning/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          machinelearning
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/mapping/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          mapping
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/markdown/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Markdown
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            9
-          </span>
-        </a>
-
-        <a href="/tags/photgrammetry/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Photgrammetry
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/python/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Python
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/pythonlibrary/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          pythonlibrary
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            2
-          </span>
-        </a>
-
-        <a href="/tags/remote-sensing/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Remote Sensing
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            2
-          </span>
-        </a>
-
-        <a href="/tags/remotesensing/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          remotesensing
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            2
-          </span>
-        </a>
-
-        <a href="/tags/resume/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Resume
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/second-brain/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Second Brain
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/source-themes/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Source Themes
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            13
-          </span>
-        </a>
-
-        <a href="/tags/streamlit/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Streamlit
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            2
-          </span>
-        </a>
-
-        <a href="/tags/webapp/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Webapp
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            2
-          </span>
-        </a>
-
-        <a href="/tags/website/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Website
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            1
-          </span>
-        </a>
-
-        <a href="/tags/wowchemy/" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-          Wowchemy
-          <span class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-primary-800 bg-primary-200 rounded-full">
-            3
-          </span>
-        </a>
-  </div>
-
-</div>
+    <div id="search-bar" class="hidden py-3 border-t border-gray-100">
+      <div class="flex items-center">
+        <input type="text" placeholder="Search products, pages, articles..." class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"/>
+        <button id="search-close" class="ml-2 text-gray-500 hover:text-gray-700"><i class="icon-x text-xl"></i></button>
+      </div>
     </div>
-    <div class="page-footer">
-      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+  </div>
+  <div id="mobile-menu" class="hidden fixed inset-0 z-50 lg:hidden">
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/30"></div>
+    <div class="fixed top-0 right-0 h-full w-80 bg-white shadow-xl overflow-y-auto">
+      <div class="p-4 border-b border-gray-100 flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Menu</h2>
+        <button id="menu-close" class="text-gray-500 hover:text-gray-700"><i class="icon-x text-xl"></i></button>
+      </div>
+      <div class="p-4 space-y-4">
+        <details class="group">
+          <summary class="flex items-center justify-between w-full text-left font-medium cursor-pointer">
+            <span>Bio</span><i class="icon-chevron-down text-sm transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="mt-2 ml-4 space-y-2"><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">All Prints</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Automobile</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Black &amp; White</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Books</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Film</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Nature</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">People</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Travel</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Water</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Apparel</a></div>
+        </details>
+        <details class="group">
+          <summary class="flex items-center justify-between w-full text-left font-medium cursor-pointer">
+            <span>Recet</span><i class="icon-chevron-down text-sm transition-transform group-open:rotate-180"></i>
+          </summary>
+          <div class="mt-2 ml-4 space-y-2"><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Anna Landstedt</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Cal Foster</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Caley Vanular</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Clare Plueckhahn</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">David Zammit</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Iman Perdana</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Jonas Bresnan</a><a href="#" class="block text-sm text-gray-600 hover:text-gray-900">Josh Soskin</a></div>
+        </details>
+        <a href="#" class="block font-medium">Research</a>
+        <a href="#" class="block font-medium">Teaching</a>
+        <a href="#" class="block font-medium">Blog</a>
+        <a href="#" class="block font-medium">Contact</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <p class="powered-by text-center">
-    © 2025 Muhammad Arslan Iqbal.
-  </p>
-  
-
-
-
-
-
-  <p class="powered-by text-center">
+  <main>
     
+<section class="container">
+  <h1>Tags</h1>
+  <ul>
     
-    
-      
-      
-      
-      
-      
-      
-      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
-    
-  </p>
+  </ul>
+</section>
 
+  </main>
+  <footer class="bg-black text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-6">Almost Real</h3>
+        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+          A source of fine art photography and visual arts by a collective of global artists and creatives.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="icon-instagram"></i></a>
+          <a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="icon-facebook"></i></a>
+          <a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="icon-twitter"></i></a>
+          <a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="icon-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Collections</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">All Prints</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Black &amp; White</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Nature</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Travel</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">People</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Water</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Artists</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Anna Landstedt</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Cal Foster</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Caley Vanular</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Clare Plueckhahn</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">David Zammit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Support</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">About</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Shipping Info</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Returns</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-400 text-sm">© 2025 Almost Real. All rights reserved.</p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
-    </div>
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-  </body>
+  <script src="/js/main.js"></script>
+</body>
 </html>

@@ -1,0 +1,14 @@
+baseURL="/"
+languageCode="en-us"
+title="Almost Real — Fine Art Photography"
+enableRobotsTXT=true
+[markup]
+  [markup.goldmark.renderer]
+    unsafe=true
+
+
+[pagination]
+  pagerSize = 10
+
+
+disableKinds = ["taxonomy","term"]

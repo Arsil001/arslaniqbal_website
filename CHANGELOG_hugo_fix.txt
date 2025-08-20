@@ -1,0 +1,5 @@
+Minimal build fixes applied 2025-08-20T03:35:51.541809Z
+- Added [pagination] with default pagerSize = 10
+- Added disableKinds = ["taxonomy","term"] to avoid missing taxonomy layouts
+
+Scope: ONLY config edits. No layouts/content were modified.
