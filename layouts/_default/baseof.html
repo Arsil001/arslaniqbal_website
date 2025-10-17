@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="nav" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">Arslan Iqbal</a>
+                <ul class="nav-menu">
+                    {{ range .Site.Menus.main }}
+                        {{ if eq .Name "CV" }}
+                            <li><a href="{{ .URL }}" target="_blank">{{ .Name }}</a></li>
+                        {{ else }}
+                            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nav-spacer"></div>
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {{ now.Year }} Muhammad Arslan Iqbal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        let scrollTimeout;
+
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            
+            scrollTimeout = setTimeout(function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 10) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    navbar.classList.add('hidden');
+                } else {
+                    navbar.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            }, 10);
+        });
+    </script>
+</body>
+</html>
