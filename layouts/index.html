@@ -1,37 +1,363 @@
 {{ define "main" }}
-<div class="hero">
-    <div class="container">
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-container">
         <div class="hero-content">
-            <div class="hero-avatar">
-                <img src="/profile.jpg" alt="Muhammad Arslan Iqbal" class="avatar">
+            <div class="hero-visual">
+                <div class="avatar-wrapper">
+                    <div class="avatar-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="avatar">
+                        <img src="/images/profile.jpg" alt="Arslan Iqbal" onerror="this.style.display='none'">
+                    </div>
+                    <div class="avatar-name">ARSLAN IQBAL</div>
+                    <div class="avatar-institution">The University of Melbourne</div>
+                    <div class="avatar-socials">
+                        <a href="mailto:iqbal2@student.unimelb.edu.au" class="avatar-social-link" title="Email">@</a>
+                        <a href="https://scholar.google.com/" class="avatar-social-link" title="Google Scholar" target="_blank">🎓</a>
+                        <a href="https://linkedin.com/in/muhammad-arslan-iqbal" class="avatar-social-link" title="LinkedIn" target="_blank">in</a>
+                        <a href="#" class="avatar-social-link" title="ORCID">iD</a>
+                    </div>
+                </div>
             </div>
             <div class="hero-text">
-                <h1>Hi, I'm Muhammad Arslan Iqbal 👋</h1>
-                <p><strong>PhD Economics Candidate</strong> focusing on behavioral & experimental economics.</p>
-                <p>I'm a PhD Economics candidate at the University of Melbourne. I study behavioral and experimental economics with a focus on leadership under weak institutional frameworks for accountability. I design lab experiments to test mechanisms that encourage responsible leadership and welfare-optimizing reforms.</p>
-                <div class="btn-group">
+                <h1 class="hero-greeting">Hi, I'm Muhammad Arslan Iqbal 👋</h1>
+                <p class="hero-subtitle">PhD Economics candidate focusing on behavioral & experimental economics</p>
+                <p class="hero-institution">University of Melbourne</p>
+                <p class="hero-description">
+                    Exploring the intersection of experimental economics, behavioral economics, and leadership. 
+                    My current research examines how election campaigns and selection mechanisms influence leader 
+                    behavior and decision-making in political and organizational contexts with weak institutions.
+                </p>
+                <div class="cta-buttons">
                     <a href="/CV.pdf" class="btn btn-primary" download>Download CV</a>
                     <a href="/CV.pdf" class="btn btn-secondary" target="_blank">View CV</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<section class="section">
-    <div class="container">
-        <h2>Current Position</h2>
-        <p>PhD Economics Candidate at the <strong>University of Melbourne</strong></p>
-        <p>Researching behavioral and experimental economics, with focus on leadership accountability and institutional design.</p>
-        
-        <h2 style="margin-top: 3rem;">Education</h2>
-        <p><strong>The University of Melbourne</strong> | PhD Economics | 2020 – Present<br>
-        Supervisors: Prof. Nisvan Erkal and Dr. Aaron Kamm</p>
-        
-        <p><strong>The University of Melbourne</strong> | Master of Economics | 2018 – 2019</p>
-        
-        <p><strong>University of the Punjab, Pakistan</strong> | MSc Economics (Honours) | 2010 – 2012<br>
-        Gold Medallist</p>
+<!-- Biography Section -->
+<section id="about" class="section">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">About</div>
+            <h2 class="section-title">Biography</h2>
+        </div>
+        <div class="biography-content">
+            <p>
+                I'm a PhD Economics candidate at the <strong>University of Melbourne</strong>, specializing in 
+                experimental and behavioral economics. My research focuses on understanding how election 
+                campaigns, selection mechanisms, and institutional frameworks influence leader behavior and 
+                decision-making.
+            </p>
+            <p>
+                Through innovative laboratory experiments, I investigate mechanisms that encourage responsible 
+                leadership and welfare-optimizing reforms, particularly in contexts with weak institutional 
+                frameworks for accountability. My work combines rigorous experimental design with insights 
+                from behavioral science to inform policy and organizational practices.
+            </p>
+            <p>
+                Prior to my doctoral studies, I earned a <strong>Gold Medal</strong> for my MSc in Economics 
+                from the University of the Punjab and worked as an Assistant Director at the State Bank of 
+                Pakistan. I've also held teaching positions at several institutions, fostering the next 
+                generation of economic thinkers.
+            </p>
+        </div>
     </div>
 </section>
+
+<!-- Research Interests Section -->
+<section id="research-interests" class="section section-alt">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">Research</div>
+            <h2 class="section-title">Research Interests</h2>
+            <p class="section-description">
+                My research agenda spans multiple areas within experimental and behavioral economics, 
+                with a focus on leadership, accountability, and political economy.
+            </p>
+        </div>
+        <div class="interests-grid">
+            <div class="interest-card">
+                <div class="interest-icon">🔬</div>
+                <h3 class="interest-title">Experimental Economics</h3>
+                <p class="interest-description">
+                    Designing controlled laboratory experiments to test economic theories and understand 
+                    human decision-making in strategic environments.
+                </p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon">🧠</div>
+                <h3 class="interest-title">Behavioral Economics</h3>
+                <p class="interest-description">
+                    Examining how psychological factors and cognitive biases influence economic choices 
+                    and leadership decisions.
+                </p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon">👔</div>
+                <h3 class="interest-title">Responsible Leadership</h3>
+                <p class="interest-description">
+                    Investigating mechanisms that promote ethical leadership behavior and accountability 
+                    in organizations and political settings.
+                </p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon">🏛️</div>
+                <h3 class="interest-title">Political Economy</h3>
+                <p class="interest-description">
+                    Analyzing how political institutions, election campaigns, and governance structures 
+                    affect policy outcomes and social welfare.
+                </p>
+            </div>
+            <div class="interest-card">
+                <div class="interest-icon">🌍</div>
+                <h3 class="interest-title">Development Economics</h3>
+                <p class="interest-description">
+                    Examining economic growth, poverty reduction, and institutional development in 
+                    emerging economies and developing nations.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="section">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">Education</div>
+            <h2 class="section-title">Academic Background</h2>
+        </div>
+        <div class="education-list">
+            <div class="education-item">
+                <div class="education-year">2020 – Present</div>
+                <div class="education-content">
+                    <h3>PhD Economics</h3>
+                    <p class="education-institution">University of Melbourne, Australia</p>
+                    <p class="education-details">
+                        Dissertation: Leadership Behavior Under Weak Institutional Frameworks
+                    </p>
+                    <span class="badge">🎓 In Progress</span>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="education-year">2018 – 2019</div>
+                <div class="education-content">
+                    <h3>Master of Economics</h3>
+                    <p class="education-institution">University of Melbourne, Australia</p>
+                    <p class="education-details">
+                        Advanced coursework in econometrics, microeconomic theory, and experimental methods
+                    </p>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="education-year">2010 – 2012</div>
+                <div class="education-content">
+                    <h3>MSc Economics</h3>
+                    <p class="education-institution">University of the Punjab, Pakistan</p>
+                    <p class="education-details">
+                        Focus on development economics and econometric analysis
+                    </p>
+                    <span class="badge">🏆 Gold Medallist</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Professional Journey Section -->
+<section id="professional-journey" class="section section-alt">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">Experience</div>
+            <h2 class="section-title">Professional Journey</h2>
+        </div>
+        <div class="journey-list">
+            <div class="journey-item">
+                <div class="journey-date">Jul 2019 – Present</div>
+                <div class="journey-content">
+                    <h3>Economics Tutor</h3>
+                    <p class="journey-company">University of Melbourne, Australia</p>
+                </div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-date">Jul 2017 – Nov 2018</div>
+                <div class="journey-content">
+                    <h3>Assistant Director (Officer Grade-2)</h3>
+                    <p class="journey-company">State Bank of Pakistan, Karachi</p>
+                </div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-date">Feb 2016 – Jul 2017</div>
+                <div class="journey-content">
+                    <h3>Economics Lecturer</h3>
+                    <p class="journey-company">Islamabad Model Postgraduate College, Pakistan</p>
+                </div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-date">Apr 2015 – Jan 2016</div>
+                <div class="journey-content">
+                    <h3>Assistant Director, Urban Development Wing</h3>
+                    <p class="journey-company">Lahore Development Authority, Punjab, Pakistan</p>
+                </div>
+            </div>
+            <div class="journey-item">
+                <div class="journey-date">Sep 2013 – Apr 2015</div>
+                <div class="journey-content">
+                    <h3>Economics Lecturer</h3>
+                    <p class="journey-company">University of Sargodha, Pakistan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">Skills</div>
+            <h2 class="section-title">Technical Expertise</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3 class="skill-category-title">Experimental Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">oTree</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">ORSEE</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 class="skill-category-title">Statistical Analysis</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Stata</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">R</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">ArcGIS Pro</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3 class="skill-category-title">General Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">LaTeX</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">GitHub</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent News Section -->
+<section id="recent-news" class="section section-alt">
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-label">Updates</div>
+            <h2 class="section-title">Recent News</h2>
+        </div>
+        <div class="education-list">
+            <div class="education-item">
+                <div class="education-year">Sep 2025</div>
+                <div class="education-content">
+                    <h3>Jim Perkins PhD Travelling Scholarship</h3>
+                    <p class="education-institution">Awarded for research visit to the University of Exeter, UK</p>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="education-year">Aug 2025</div>
+                <div class="education-content">
+                    <h3>ANZWEE Conference Presentation</h3>
+                    <p class="education-institution">Presented research at the 18th annual Australia New Zealand Workshop on Experimental Economics at Macquarie University</p>
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="education-year">Jul 2025</div>
+                <div class="education-content">
+                    <h3>BEE Conference Participation</h3>
+                    <p class="education-institution">Participated in the 7th Meeting on Behavioural and Experimental Economics at the University of Florence, Italy</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="contact-cta">
+    <h2>Let's Collaborate</h2>
+    <p>
+        Interested in discussing research, exploring collaboration opportunities, or learning more 
+        about my work? I'd love to hear from you.
+    </p>
+    <a href="/contact/" class="btn btn-white">Get in Touch</a>
+</section>
+
 {{ end }}
