@@ -1,23 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
-    <meta name="description" content="{{ .Site.Params.description }}">
-    <meta name="google-site-verification" content="gOoGF4yRWwEQT2ImokGd9jmHnfPhEndR2VD-hhzpyeE" />
-    
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-    <link rel="shortcut icon" href="/favicon.png">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+
+  <!-- Essential SEO tags -->
+  <meta name="description" content="{{ .Site.Params.description }}">
+  <meta name="keywords" content="Muhammad Arslan Iqbal, Arslan Iqbal, Economist, Experimental Economics, Leadership, Political Economy, University of Melbourne">
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <!-- Verification for Google Search Console -->
+  <meta name="google-site-verification" content="gOoGF4yRWwEQT2ImokGd9jmHnfPhEndR2VD-hhzpyeE" />
+
+  <!-- Open Graph (for social sharing) -->
+  <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+  <meta property="og:description" content="{{ .Site.Params.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="https://arslaniqbal.com/images/profile.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ .Site.Title }}">
+  <meta name="twitter:description" content="{{ .Site.Params.description }}">
+  <meta name="twitter:image" content="https://arslaniqbal.com/images/profile.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Structured Data: Person Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Arslan Iqbal",
+    "url": "https://arslaniqbal.com",
+    "image": "https://arslaniqbal.com/images/profile.jpg",
+    "jobTitle": "PhD Candidate in Economics",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Melbourne"
+    },
+    "sameAs": [
+      "https://scholar.google.com/...",
+      "https://linkedin.com/in/muhammad-arslan-iqbal",
+      "https://orcid.org/..."
+    ]
+  }
+  </script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav" id="navbar">
@@ -29,30 +71,36 @@
                 <span></span>
             </button>
             <ul class="nav-menu" id="navMenu">
-                {{ if .IsHome }}
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
+                    <a href="{{ if .IsHome }}#about{{ else }}/#about{{ end }}" class="nav-link">About</a>
                     <div class="dropdown">
-                        <a href="#about" class="dropdown-item">Biography</a>
-                        <a href="#research-interests" class="dropdown-item">Research Interests</a>
-                        <a href="#education" class="dropdown-item">Academic Background</a>
-                        <a href="#professional-journey" class="dropdown-item">Professional Journey</a>
-                        <a href="#skills" class="dropdown-item">Skills</a>
+                        <a href="{{ if .IsHome }}#about{{ else }}/#about{{ end }}" class="dropdown-item">Biography</a>
+                        <a href="{{ if .IsHome }}#research-interests{{ else }}/#research-interests{{ end }}" class="dropdown-item">Research Interests</a>
+                        <a href="{{ if .IsHome }}#education{{ else }}/#education{{ end }}" class="dropdown-item">Academic Background</a>
+                        <a href="{{ if .IsHome }}#professional-journey{{ else }}/#professional-journey{{ end }}" class="dropdown-item">Professional Journey</a>
+                        <a href="{{ if .IsHome }}#skills{{ else }}/#skills{{ end }}" class="dropdown-item">Skills</a>
                     </div>
                 </li>
-                <li><a href="/research/" class="nav-link">Research</a></li>
-                <li><a href="/teaching/" class="nav-link">Teaching</a></li>
-                <li><a href="#recent-news" class="nav-link">Recent News</a></li>
-                <li><a href="/contact/" class="nav-link">Contact</a></li>
+               <li class="nav-item">
+                        <a href="/research/" class="nav-link{{ if eq .Section "research" }} active{{ end }}">Research</a>
+                    <div class="dropdown">
+                        <a href="/research/#working-papers" class="dropdown-item">Working Papers</a>
+                        <a href="/research/#publications" class="dropdown-item">Publications</a>
+                        <a href="/research/#presentations" class="dropdown-item">Presentations</a>
+                        <!-- REMOVED: Research Interests link -->
+                    </div>
+                </li>
+                 <li class="nav-item">
+                        <a href="/teaching/" class="nav-link{{ if eq .Section "teaching" }} active{{ end }}">Teaching</a>
+                    <div class="dropdown">
+                        <a href="/teaching/#current-teaching" class="dropdown-item">Current Position</a>
+                        <a href="/teaching/#past-teaching" class="dropdown-item">Past Teaching</a>
+                        <a href="/teaching/#teaching-philosophy" class="dropdown-item">Teaching Philosophy</a>
+                    </div>
+                </li>
+                <li><a href="{{ if .IsHome }}#recent-news{{ else }}/#recent-news{{ end }}" class="nav-link">Recent News</a></li>
+                <li><a href="/contact/" class="nav-link{{ if eq .Section "contact" }} active{{ end }}">Contact</a></li>
                 <li><a href="/CV.pdf" class="nav-link" target="_blank">CV</a></li>
-                {{ else }}
-                <li><a href="/#about" class="nav-link">About</a></li>
-                <li><a href="/research/" class="nav-link {{ if eq .Section "research" }}active{{ end }}">Research</a></li>
-                <li><a href="/teaching/" class="nav-link {{ if eq .Section "teaching" }}active{{ end }}">Teaching</a></li>
-                <li><a href="/#recent-news" class="nav-link">Recent News</a></li>
-                <li><a href="/contact/" class="nav-link {{ if eq .Section "contact" }}active{{ end }}">Contact</a></li>
-                <li><a href="/CV.pdf" class="nav-link" target="_blank">CV</a></li>
-                {{ end }}
             </ul>
         </div>
     </nav>
@@ -227,11 +275,13 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const progress = entry.target.querySelector('.skill-progress');
-                    const width = progress.style.width;
-                    progress.style.width = '0';
-                    setTimeout(() => {
-                        progress.style.width = width;
-                    }, 100);
+                    if (progress) {
+                        const width = progress.style.width;
+                        progress.style.width = '0';
+                        setTimeout(() => {
+                            progress.style.width = width;
+                        }, 100);
+                    }
                 }
             });
         }, observerOptions);

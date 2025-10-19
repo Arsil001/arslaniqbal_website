@@ -32,3 +32,11 @@ title = "Muhammad Arslan Iqbal"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params.seo]
+  keywords = ["Muhammad Arslan Iqbal", "Arslan Iqbal", "Economist", "Experimental Economics", "Leadership Behavior", "Political Economy", "Arslan Economics", "Behavioral Economics"]
+  description = "Muhammad Arslan Iqbal — PhD Candidate in Economics at the University of Melbourne. Researching responsible leadership, selection mechanisms, and experimental political economy."
+  image = "images/profile.jpg"      # or your actual profile image path
