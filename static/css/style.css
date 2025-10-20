@@ -611,7 +611,7 @@ body {
 }
 
 .biography-content strong {
-    color: var(--color-text-primary);
+    color: var(--color-accent);  /* This makes strong text orange */
     font-weight: 600;
 }
 
