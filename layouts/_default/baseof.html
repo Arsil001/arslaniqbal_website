@@ -6,7 +6,7 @@
   <title>{{ .Title }} | {{ .Site.Title }}</title>
 
   <!-- Essential SEO tags -->
-  <meta name="description" content="{{ .Site.Params.description }}">
+  <meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta name="keywords" content="Muhammad Arslan Iqbal, Arslan Iqbal, Economist, Experimental Economics, Leadership, Political Economy, University of Melbourne">
   <meta name="author" content="{{ .Site.Params.author }}">
   <link rel="canonical" href="{{ .Permalink }}">
@@ -111,59 +111,66 @@
         {{ block "main" . }}{{ end }}
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>ARSLAN IQBAL</h3>
-                <p>
-                    PhD Economics Candidate at the University of Melbourne, specializing in experimental 
-                    and behavioral economics with a focus on leadership and political economy.
-                </p>
-                <div class="social-links">
-    			<a href="https://linkedin.com/in/muhammad-arslan-iqbal" class="social-link" target="_blank">
-        			<i class="fab fa-linkedin-in"></i>
-    			</a>
-    			<a href="https://github.com/Arsil001" class="social-link" target="_blank">
-        			<i class="fab fa-github"></i>
-    			</a>
-    			<a href="mailto:iqbal2@student.unimelb.edu.au" class="social-link">
-        			<i class="fas fa-envelope"></i>
-    			</a>
-	    </div>
-            </div>
-            <div class="footer-section">
-                <h3>QUICK LINKS</h3>
-                <div class="footer-links">
-                    <a href="/#about">About</a>
-                    <a href="/research/">Research</a>
-                    <a href="/teaching/">Teaching</a>
-                    <a href="/CV.pdf" target="_blank">CV</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>SECTIONS</h3>
-                <div class="footer-links">
-                    <a href="/#research-interests">Research Interests</a>
-                    <a href="/#education">Academic Background</a>
-                    <a href="/#professional-journey">Professional Journey</a>
-                    <a href="/#skills">Skills</a>
-                    <a href="/#recent-news">Recent News</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>CONTACT</h3>
-                <div class="footer-links">
-                    <a href="mailto:iqbal2@student.unimelb.edu.au">Email</a>
-                    <a href="/contact/">Contact Form</a>
-                    <a href="https://www.arslaniqbal.com" target="_blank">University Profile</a>
-                </div>
+    
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>ARSLAN IQBAL</h3>
+            <p>
+                PhD Economics candidate at the University of Melbourne, specializing in experimental 
+                and behavioral economics with a focus on leadership and political economy.
+            </p>
+            <div class="social-links">
+                <a href="mailto:iqbal2@student.unimelb.edu.au" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://scholar.google.com/" class="social-link" title="Google Scholar" target="_blank">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://linkedin.com/in/muhammad-arslan-iqbal" class="social-link" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/Arsil001" class="social-link" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link" title="ORCID">
+                    <i class="ai ai-orcid"></i>
+                </a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; {{ now.Year }} Muhammad Arslan Iqbal. All rights reserved.</p>
+        <div class="footer-section">
+            <h3>QUICK LINKS</h3>
+            <div class="footer-links">
+                <a href="/#about">About</a>
+                <a href="/research/">Research</a>
+                <a href="/teaching/">Teaching</a>
+                <a href="/CV.pdf" target="_blank">CV</a>
+            </div>
         </div>
-    </footer>
+        <div class="footer-section">
+            <h3>SECTIONS</h3>
+            <div class="footer-links">
+                <a href="/#research-interests">Research Interests</a>
+                <a href="/#education">Academic Background</a>
+                <a href="/#professional-journey">Professional Journey</a>
+                <a href="/#skills">Skills</a>
+                <a href="/#recent-news">Recent News</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT</h3>
+            <div class="footer-links">
+                <a href="mailto:iqbal2@student.unimelb.edu.au">Email</a>
+                <a href="/contact/">Contact Form</a>
+                <a href="https://fbe.unimelb.edu.au/our-people/graduate-research/economics/arslan-iqbal" target="_blank">University Profile</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; {{ now.Year }} Muhammad Arslan Iqbal. All rights reserved.</p>
+    </div>
+</footer>
 
     <script>
         // Navbar scroll effect

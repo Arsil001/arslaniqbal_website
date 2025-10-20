@@ -868,9 +868,10 @@ body {
     font-size: 1.125rem;
     margin-bottom: 2.5rem;
     opacity: 0.95;
-    max-width: 600px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.8;  /* Add this for better readability */
 }
 
 .btn-white {
@@ -997,6 +998,18 @@ body {
 .author-highlight {
     color: var(--color-accent);
     font-weight: 600;
+}
+
+/* Author links */
+.author-link {
+    color: #16a085;  /* Teal that works with your warm theme */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.author-link:hover {
+    color: var(--color-accent);
+    text-shadow: 0 0 8px rgba(217, 122, 74, 0.3);  /* Subtle glow */
 }
 
 .abstract-label {
