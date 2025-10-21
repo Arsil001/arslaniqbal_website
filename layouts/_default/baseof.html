@@ -56,57 +56,56 @@
     },
     "sameAs": [
       "https://scholar.google.com/...",
-      "https://linkedin.com/in/muhammad-arslan-iqbal",
-      "https://orcid.org/..."
+      "https://www.linkedin.com/in/m-arslan-iqbal",
+      "https://orcid.org/my-orcid?orcid=0000-0001-8550-079X"
     ]
   }
   </script>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="nav" id="navbar">
-        <div class="nav-container">
-            <a href="/" class="logo">ARSLAN IQBAL</a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item">
-    				<a href="/" class="nav-link">About</a>
-    			<div class="dropdown">
-        			<a href="{{ if .IsHome }}#about{{ else }}/#about{{ end }}" class="dropdown-item">Biography</a>
-        			<a href="{{ if .IsHome }}#research-interests{{ else }}/#research-interests{{ end }}" class="dropdown-item">Research Interests</a>
-        			<a href="{{ if .IsHome }}#education{{ else }}/#education{{ end }}" class="dropdown-item">Academic Background</a>
-        			<a href="{{ if .IsHome }}#professional-journey{{ else }}/#professional-journey{{ end }}" class="dropdown-item">Professional Journey</a>
-        			<a href="{{ if .IsHome }}#skills{{ else }}/#skills{{ end }}" class="dropdown-item">Skills</a>
-    			</div>
-	       </li>
-               <li class="nav-item">
-                        <a href="/research/" class="nav-link{{ if eq .Section "research" }} active{{ end }}">Research</a>
-                    <div class="dropdown">
-                        <a href="/research/#working-papers" class="dropdown-item">Working Papers</a>
-                        <a href="/research/#publications" class="dropdown-item">Publications</a>
-                        <a href="/research/#presentations" class="dropdown-item">Presentations</a>
-                        <!-- REMOVED: Research Interests link -->
-                    </div>
-                </li>
-                 <li class="nav-item">
-                        <a href="/teaching/" class="nav-link{{ if eq .Section "teaching" }} active{{ end }}">Teaching</a>
-                    <div class="dropdown">
-                        <a href="/teaching/#current-teaching" class="dropdown-item">Current Position</a>
-                        <a href="/teaching/#past-teaching" class="dropdown-item">Past Teaching</a>
-                        <a href="/teaching/#teaching-philosophy" class="dropdown-item">Teaching Philosophy</a>
-                    </div>
-                </li>
-                <li><a href="{{ if .IsHome }}#recent-news{{ else }}/#recent-news{{ end }}" class="nav-link">Recent News</a></li>
-                <li><a href="/contact/" class="nav-link{{ if eq .Section "contact" }} active{{ end }}">Contact</a></li>
-                <li><a href="/CV.pdf" class="nav-link" target="_blank">CV</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- Navigation -->
+<nav class="nav" id="navbar">
+    <div class="nav-container">
+        <a href="/" class="logo">ARSLAN IQBAL</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-item">
+                <a href="/" class="nav-link">About</a>
+                <div class="dropdown">
+                    <a href="{{ if .IsHome }}#about{{ else }}/#about{{ end }}" class="dropdown-item">Biography</a>
+                    <a href="{{ if .IsHome }}#research-interests{{ else }}/#research-interests{{ end }}" class="dropdown-item">Research Interests</a>
+                    <a href="{{ if .IsHome }}#education{{ else }}/#education{{ end }}" class="dropdown-item">Academic Background</a>
+                    <a href="{{ if .IsHome }}#professional-journey{{ else }}/#professional-journey{{ end }}" class="dropdown-item">Professional Journey</a>
+                    <a href="{{ if .IsHome }}#skills{{ else }}/#skills{{ end }}" class="dropdown-item">Skills</a>
+                </div>
+            </li>
+            <li><a href="/CV.pdf" class="nav-link" target="_blank">CV</a></li>
+            <li class="nav-item">
+                <a href="/research/" class="nav-link{{ if eq .Section "research" }} active{{ end }}">Research</a>
+                <div class="dropdown">
+                    <a href="/research/#working-papers" class="dropdown-item">Working Papers</a>
+                    <a href="/research/#publications" class="dropdown-item">Publication</a>
+                    <a href="/research/#presentations" class="dropdown-item">Presentations</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="/teaching/" class="nav-link{{ if eq .Section "teaching" }} active{{ end }}">Teaching</a>
+                <div class="dropdown">
+                    <a href="/teaching/#current-teaching" class="dropdown-item">Current Position</a>
+                    <a href="/teaching/#past-teaching" class="dropdown-item">Past Teaching</a>
+                    <a href="/teaching/#teaching-philosophy" class="dropdown-item">Teaching Philosophy</a>
+                </div>
+            </li>
+            <li><a href="{{ if .IsHome }}#recent-news{{ else }}/#recent-news{{ end }}" class="nav-link">Recent News</a></li>
+            <li><a href="/contact/" class="nav-link{{ if eq .Section "contact" }} active{{ end }}">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
     <main>
         {{ block "main" . }}{{ end }}
@@ -126,17 +125,17 @@
                 <a href="mailto:iqbal2@student.unimelb.edu.au" class="social-link" title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
-                <a href="https://scholar.google.com/" class="social-link" title="Google Scholar" target="_blank">
+                <a href="https://scholar.google.com/citations?user=thRTMg4AAAAJ&hl=en" class="social-link" title="Google Scholar" target="_blank">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
-                <a href="https://linkedin.com/in/muhammad-arslan-iqbal" class="social-link" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+                <a href="https://www.linkedin.com/in/m-arslan-iqbal" class="social-link" target="_blank" title="LinkedIn">
+    		    <i class="fab fa-linkedin-in"></i>
+		</a>
                 <a href="https://github.com/Arsil001" class="social-link" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="#" class="social-link" title="ORCID">
-                    <i class="ai ai-orcid"></i>
+                <a href="https://orcid.org/my-orcid?orcid=0000-0001-8550-079X" class="social-link" title="ORCID" target="_blank">
+    		   <i class="ai ai-orcid"></i>
                 </a>
             </div>
         </div>
