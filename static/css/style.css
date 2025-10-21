@@ -42,7 +42,7 @@ body {
     right: 0;
     z-index: 1000;
     background: transparent;
-    transition: all 0.4s var(--transition);
+    transition: all 0.15s var(--transition);
     padding: 2rem 0 1.5rem;
 }
 
@@ -62,7 +62,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    transition: all 0.4s var(--transition);
+    transition: all 0.15s var(--transition);
 }
 
 .nav.scrolled .nav-container {
@@ -72,7 +72,7 @@ body {
 }
 
 .logo {
-    font-size: 1.575rem;
+    font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -139,7 +139,7 @@ body {
     width: 100%;
 }
 
-/* Dropdown Menu */
+
 /* Dropdown Menu - UPDATED */
 .nav-item {
     position: relative;
@@ -157,7 +157,6 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     opacity: 0;
     visibility: hidden;
-    pointer-events: none; /* ADDED - prevents interaction when hidden */
     transition: all 0.3s var(--transition);
     margin-top: 0.5rem;
     padding: 0.5rem 0;
@@ -168,7 +167,6 @@ body {
 .nav-item:hover .dropdown {
     opacity: 1;
     visibility: visible;
-    pointer-events: auto; /* ADDED - enables interaction when visible */
 }
 
 .dropdown-item {
@@ -178,7 +176,6 @@ body {
     text-decoration: none;
     transition: all 0.2s ease;
     font-size: 0.9375rem;
-    white-space: nowrap; /* ADDED - prevents text wrapping */
 }
 
 .dropdown-item:hover {
@@ -186,6 +183,7 @@ body {
     color: var(--color-accent);
     padding-left: 1.5rem;
 }
+
 
 /* Mobile Menu */
 .menu-toggle {
@@ -212,7 +210,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 12rem 0 4rem;
+    padding: 15rem 0 4rem;
     background: var(--color-bg-secondary);
 }
 
@@ -226,7 +224,7 @@ body {
 .hero-content {
     display: grid;
     grid-template-columns: 30% 60%;
-    gap: 5%;
+    gap: 8%;
     align-items: center;
 }
 
@@ -238,11 +236,12 @@ body {
 .avatar-wrapper {
     position: relative;
     text-align: center;
+    margin-top: 3rem; /* ADDED - pushes avatar down */
 }
 
 .avatar {
-    width: 264px;
-    height: 264px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--color-accent) 0%, #E89A6C 100%);
     box-shadow: 
@@ -485,7 +484,8 @@ body {
 
 .hero-greeting {
     font-size: 2.5rem;
-    font-weight: 600;
+    font-weight: 300;
+    font-family: 'DM Sans', sans-serif; /* OR 'DM Sans', sans-serif */
     letter-spacing: -0.02em;
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -1321,7 +1321,7 @@ body {
 @media (max-width: 1024px) {
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 4rem;
         text-align: center;
     }
 
@@ -1330,8 +1330,8 @@ body {
     }
 
     .avatar {
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 240px;
         box-shadow: 
             0 0 30px rgba(217, 122, 74, 0.3),
             0 0 60px rgba(217, 122, 74, 0.15),
@@ -1389,11 +1389,25 @@ body {
     }
 }
 
+
 @media (max-width: 768px) {
+    .nav {
+        transition: all 0.1s ease !important;
+    }
+    
+    .nav.scrolled {
+        transition: all 0.1s ease !important;
+    }
+    
     .nav-container {
         flex-direction: row;
         justify-content: space-between;
         padding: 0 1.5rem;
+        transition: all 0.1s ease !important;
+    }
+    
+    .logo {
+        transition: all 0.1s ease !important;
     }
     
     .nav-menu {
@@ -1407,7 +1421,7 @@ body {
         flex-direction: column;
         padding: 5rem 2rem 2rem;
         box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
-        transition: right 0.4s var(--transition);
+        transition: right 0.3s ease;
         gap: 0;
         z-index: 999;
     }
@@ -1424,32 +1438,35 @@ body {
     }
     
     .dropdown {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    box-shadow: none;
-    background: transparent;
-    border: none;
-    margin-top: 0; /* CHANGED from 0.5rem to 0 */
-    padding: 0; /* ADDED - removes any padding */
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    transform: none;
-   }
-    
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        transform: none !important;
+        backdrop-filter: none !important;
+    }
+
     .nav-item.active .dropdown {
         max-height: 500px;
     }
-    
+
     .dropdown-item {
-        padding-left: 2rem;
+        padding: 0.75rem 2rem !important;
         font-size: 0.875rem;
+        background: transparent !important;
     }
-    
+
     .dropdown-item:hover {
-        padding-left: 2.25rem;
+        padding-left: 2.25rem !important;
     }
     
     .menu-toggle {
@@ -1457,7 +1474,7 @@ body {
     }
     
     .hero {
-        padding: 8rem 1.5rem 3rem;
+        padding: 11rem 1.5rem 3rem;
     }
     
     .hero-greeting {
@@ -1469,12 +1486,16 @@ body {
     }
     
     .avatar {
-        width: 220px;
-        height: 220px;
+        width: 240px;
+        height: 240px;
         box-shadow: 
             0 0 35px rgba(217, 122, 74, 0.35),
             0 0 70px rgba(217, 122, 74, 0.18),
             0 18px 50px rgba(217, 122, 74, 0.22);
+    }
+
+    .avatar-wrapper {
+        margin-top: 0;
     }
     
     .avatar-name {
@@ -1570,8 +1591,8 @@ body {
     }
 
     .avatar {
-        width: 200px;
-        height: 200px;
+        width: 220px;
+        height: 220px;
         box-shadow: 
             0 0 30px rgba(217, 122, 74, 0.3),
             0 0 60px rgba(217, 122, 74, 0.15),

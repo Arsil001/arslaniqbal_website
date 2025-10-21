@@ -36,6 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="/css/style.css">
@@ -74,15 +75,15 @@
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item">
-                    <a href="{{ if .IsHome }}#about{{ else }}/#about{{ end }}" class="nav-link">About</a>
-                    <div class="dropdown">
-                        <a href="{{ if .IsHome }}#about{{ else }}/#about{{ end }}" class="dropdown-item">Biography</a>
-                        <a href="{{ if .IsHome }}#research-interests{{ else }}/#research-interests{{ end }}" class="dropdown-item">Research Interests</a>
-                        <a href="{{ if .IsHome }}#education{{ else }}/#education{{ end }}" class="dropdown-item">Academic Background</a>
-                        <a href="{{ if .IsHome }}#professional-journey{{ else }}/#professional-journey{{ end }}" class="dropdown-item">Professional Journey</a>
-                        <a href="{{ if .IsHome }}#skills{{ else }}/#skills{{ end }}" class="dropdown-item">Skills</a>
-                    </div>
-                </li>
+    				<a href="/" class="nav-link">About</a>
+    			<div class="dropdown">
+        			<a href="{{ if .IsHome }}#about{{ else }}/#about{{ end }}" class="dropdown-item">Biography</a>
+        			<a href="{{ if .IsHome }}#research-interests{{ else }}/#research-interests{{ end }}" class="dropdown-item">Research Interests</a>
+        			<a href="{{ if .IsHome }}#education{{ else }}/#education{{ end }}" class="dropdown-item">Academic Background</a>
+        			<a href="{{ if .IsHome }}#professional-journey{{ else }}/#professional-journey{{ end }}" class="dropdown-item">Professional Journey</a>
+        			<a href="{{ if .IsHome }}#skills{{ else }}/#skills{{ end }}" class="dropdown-item">Skills</a>
+    			</div>
+	       </li>
                <li class="nav-item">
                         <a href="/research/" class="nav-link{{ if eq .Section "research" }} active{{ end }}">Research</a>
                     <div class="dropdown">
