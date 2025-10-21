@@ -172,138 +172,170 @@
     </div>
 </footer>
 
-    <script>
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
+<script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Mobile dropdown toggle - UPDATED
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    function setupMobileDropdown() {
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown');
+            
+            if (dropdown) {
+                // Remove old event listeners by cloning
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+                
+                if (window.innerWidth <= 768) {
+                    newLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation(); // Prevents event bubbling
+                        
+                        // Close all other dropdowns first
+                        navItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('active');
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        item.classList.toggle('active');
+                    });
+                } else {
+                    // Desktop: remove active class to allow hover
+                    item.classList.remove('active');
+                }
             }
         });
+    }
+    
+    setupMobileDropdown();
+    window.addEventListener('resize', setupMobileDropdown);
 
-        // Mobile menu toggle
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-
-        // Mobile dropdown toggle
-        const navItems = document.querySelectorAll('.nav-item');
-        
-        function setupMobileDropdown() {
-            navItems.forEach(item => {
-                const link = item.querySelector('.nav-link');
-                const dropdown = item.querySelector('.dropdown');
-                
-                if (dropdown) {
-                    const newLink = link.cloneNode(true);
-                    link.parentNode.replaceChild(newLink, link);
-                    
-                    if (window.innerWidth <= 768) {
-                        newLink.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            item.classList.toggle('active');
-                        });
-                    }
-                }
-            });
-        }
-        
-        setupMobileDropdown();
-        window.addEventListener('resize', setupMobileDropdown);
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navbar.contains(e.target)) {
+    // Close mobile menu when clicking dropdown items - NEW
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
                 navMenu.classList.remove('active');
                 menuToggle.classList.remove('active');
+                // Also close all dropdowns
+                navItems.forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target)) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            // Also close all dropdowns when clicking outside - NEW
+            navItems.forEach(navItem => {
+                navItem.classList.remove('active');
+            });
+        }
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            if (this.classList.contains('nav-link') && this.parentElement.querySelector('.dropdown') && window.innerWidth <= 768) {
+                return;
+            }
+            
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+
+    // Active link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link[href^="#"], .dropdown-item[href^="#"]');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - 200) {
+                current = section.getAttribute('id');
             }
         });
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.classList.contains('nav-link') && this.parentElement.querySelector('.dropdown') && window.innerWidth <= 768) {
-                    return;
-                }
-                
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    navMenu.classList.remove('active');
-                }
-            });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
         });
+    });
 
-        // Active link on scroll
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link[href^="#"], .dropdown-item[href^="#"]');
+    // Fade-in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
+    }, observerOptions);
 
-        // Fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    document.querySelectorAll('.interest-card, .education-item, .journey-item, .skill-category').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+    // Skill bar animation
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progress = entry.target.querySelector('.skill-progress');
+                if (progress) {
+                    const width = progress.style.width;
+                    progress.style.width = '0';
+                    setTimeout(() => {
+                        progress.style.width = width;
+                    }, 100);
                 }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.interest-card, .education-item, .journey-item, .skill-category').forEach(el => {
-            el.classList.add('fade-in');
-            observer.observe(el);
+            }
         });
+    }, observerOptions);
 
-        // Skill bar animation
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const progress = entry.target.querySelector('.skill-progress');
-                    if (progress) {
-                        const width = progress.style.width;
-                        progress.style.width = '0';
-                        setTimeout(() => {
-                            progress.style.width = width;
-                        }, 100);
-                    }
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.skill-item').forEach(el => {
-            skillObserver.observe(el);
-        });
-    </script>
+    document.querySelectorAll('.skill-item').forEach(el => {
+        skillObserver.observe(el);
+    });
+</script>
 </body>
 </html>
